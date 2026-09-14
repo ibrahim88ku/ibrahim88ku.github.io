@@ -99,7 +99,7 @@ export default function Home() {
       <section className="grid-bg relative overflow-hidden border-b border-slate-800/60 pt-36">
         <div className="section flex min-h-[620px] items-center">
           <div className="max-w-4xl">
-            <div className="kicker mb-5">Infrastructure • Cloud • Architecture</div>
+            <div className="kicker mb-5">IT Infrastructure • Cloud • Technology Architect</div>
             <h1 className="text-5xl font-extrabold leading-[1.04] tracking-tight md:text-7xl">
               Ibrahim Khalil
             </h1>
