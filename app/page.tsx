@@ -250,7 +250,7 @@ export default function Home() {
             Kubernetes or platform engineering opportunities.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a className="inline-flex items-center gap-2 rounded-xl bg-sky-400 px-5 py-3 font-semibold text-slate-950" href="mailto:your-email@example.com"><Mail size={17} /> Email</a>
+            <a className="inline-flex items-center gap-2 rounded-xl bg-sky-400 px-5 py-3 font-semibold text-slate-950" href="mailto:ibrahim88ku@gmail.com.com"><Mail size={17} /> Email</a>
             <a className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-3" href="https://www.linkedin.com/in/ibrahim88ku/" target="_blank"><Linkedin size={17} /> LinkedIn</a>
             <a className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-3" href="https://github.com/ibrahim88ku" target="_blank"><Github size={17} /> GitHub</a>
             <a className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-3" href="/resume.pdf"><Download size={17} /> Resume</a>
