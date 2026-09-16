@@ -1,265 +1,206 @@
 import {
-  ArrowUpRight, Cloud, Database, Github, Linkedin, Mail, Server,
-  ShieldCheck, Terminal, Network, Boxes, Download, ChevronRight
+  ArrowUpRight, Award, Boxes, BriefcaseBusiness, CheckCircle2, Cloud, Database,
+  Download, ExternalLink, Github, GraduationCap, Linkedin, Mail, MapPin, Network,
+  Server, ShieldCheck, Terminal, BookOpen, Cpu, HardDrive, Layers3, Workflow
 } from "lucide-react";
 
-const skills = [
-  ["Storage & SAN", "Dell EMC • NetApp • Hitachi • HPE • IBM • Pure • Huawei"],
-  ["Backup & DR", "Veeam • Commvault • NetBackup • Acronis • Data Domain • StoreOnce"],
-  ["Virtualization", "VMware • Hyper-V • Nutanix • Proxmox • vSAN"],
-  ["Cloud", "AWS • Azure • GCP • OCI • IBM Cloud • DigitalOcean"],
-  ["Kubernetes & DevOps", "Kubernetes • K3s • Rancher • Docker • Jenkins • GitLab"],
-  ["Networking", "Cisco • Brocade • FC • SAN zoning • NDFC • SANnav"]
-];
-
-const projects = [
+const experience = [
   {
-    title: "Multi-Data-Center Oracle Storage & Migration",
-    area: "Storage / Oracle",
-    text: "Storage provisioning and migration work supporting Oracle 12c/19c RAC and ADG environments across multiple data centers, including SAN zoning and NVMe-based workload transitions.",
-    tags: ["Oracle RAC", "ADG", "SAN", "NVMe", "FC"]
+    period: "Jul 2022 — Present", role: "Principal Engineer, Platform Infrastructure & DevOps", company: "Nagad Ltd. · Digital Financial Services · Dhaka",
+    bullets: [
+      "Implement, administer and optimize on-premises and multi-cloud infrastructure spanning servers, enterprise storage, SAN fabrics, backup/recovery, VMware/Hyper-V, Linux/Windows and container platforms.",
+      "Deploy secure and scalable AWS, Azure, GCP and OCI services across IAM/RBAC, compute, networking, storage, security policy and data protection.",
+      "Implement Docker/Kubernetes platforms and CI/CD workflows with Jenkins, GitHub, AWS CodePipeline and Azure Pipelines.",
+      "Lead geo-separated replication and business-continuity operations using Hitachi TrueCopy/SI/HUR/GAD, NetApp SnapMirror/SnapVault and Dell EMC RecoverPoint/SRDF.",
+      "Protect business-critical applications, VMs and Oracle/MySQL/MSSQL databases with Commvault, NetBackup and Veeam, aligned with SLA, audit, restoration and DR requirements."
+    ]
   },
   {
-    title: "Enterprise Backup & Disaster Recovery",
-    area: "Backup / DR",
-    text: "Designed and operated backup and recovery solutions across Commvault, Veeam and enterprise storage platforms, including DR workflows for critical application services.",
-    tags: ["Commvault", "Veeam", "DR", "Air-gap", "Dell EMC"]
+    period: "Sep 2020 — Jun 2022", role: "Lead Engineer, Server, Storage and Backup Administrator", company: "Nagad Ltd. · Digital Financial Services · Dhaka",
+    bullets: [
+      "Planned, deployed and administered heterogeneous storage and backup platforms integrated with Linux, Windows and VMware.",
+      "Managed VMware ESXi/vSphere HA/vSAN and Hyper-V environments, capacity planning and performance tuning.",
+      "Managed Cisco/Brocade SAN fabrics including VSAN, FC zoning, ISL trunking, Port Channel, IVR, NPV/NPIV and firmware lifecycle.",
+      "Provided L3 troubleshooting, storage provisioning, host mapping, cloning/snapshots and OEM/vendor escalation for critical infrastructure."
+    ]
   },
   {
-    title: "Hyper-V HA & S2D Infrastructure",
-    area: "Virtualization",
-    text: "Engineering work around Dell PowerEdge, Windows Server 2022, Hyper-V, Failover Clustering, VLAN segmentation, storage and Veeam protection.",
-    tags: ["Hyper-V", "Windows", "Dell", "S2D", "Veeam"]
+    period: "Jul 2019 — Aug 2020", role: "Asst. Manager, Enterprise Solution and Services", company: "Smart Technologies (BD) Ltd · Dhaka",
+    bullets: [
+      "Led the Storage & Backup technical team and delivered SAN/NAS, server, archiving, backup/recovery, converged infrastructure and virtualization projects end-to-end.",
+      "Performed heterogeneous storage migrations and technology refresh projects with minimal downtime.",
+      "Worked with OEM professional services and customers on PoCs, SoWs, assessments, design reviews and technical specifications."
+    ]
   },
   {
-    title: "AWS Cloud Platform Architecture",
-    area: "Cloud / DevOps",
-    text: "Cloud architecture and migration work covering AWS Organizations, IAM Identity Center, Route 53, S3, CloudFront, SES, SNS, Amplify and ECS-based application hosting.",
-    tags: ["AWS", "IAM", "ECS", "S3", "CloudFront"]
+    period: "Jul 2016 — Jun 2019", role: "Asst. Manager, Customer Service and Implementation Engineer", company: "Computer Services Limited · Dell EMC Authorized Partner · Dhaka",
+    bullets: [
+      "Delivered onsite L3/P1 production data-center support and led storage, server, SAN, backup/recovery implementations and migrations.",
+      "Implemented Dell EMC Celerra, CLARiiON, VNX/VNXe, VMAX/PowerMax, Unity, XtremIO and VPLEX across Windows, Linux/Unix, VMware, Solaris, AIX and HP-UX.",
+      "Implemented RecoverPoint, Avamar, NetWorker, Data Domain and IDPA, plus Cisco/Brocade departmental and director-class SAN fabrics.",
+      "Developed DR plans and conducted recovery validation for FinTech, Banking/BFSI and enterprise customers."
+    ]
   },
   {
-    title: "Kubernetes Shared Persistent Storage",
-    area: "Kubernetes",
-    text: "Operations and architecture work involving Kubernetes workloads, shared persistent storage, Rancher/K3s ecosystems and backup-oriented workflows.",
-    tags: ["Kubernetes", "K3s", "Rancher", "Storage", "Velero"]
-  },
-  {
-    title: "SAN, Fabric & Enterprise Storage Operations",
-    area: "Data Center",
-    text: "Hands-on enterprise storage and fabric engineering across Dell EMC, NetApp, Hitachi and HPE platforms, including zoning, provisioning, migrations and troubleshooting.",
-    tags: ["NetApp", "Hitachi", "HPE", "Brocade", "Cisco"]
+    period: "Feb 2014 — Jun 2016", role: "Customer Service Engineer, Server, Storage, Backup and Recovery", company: "Computer Services Limited · Dell EMC Authorized Partner · Dhaka",
+    bullets: [
+      "Installed and supported EMC storage, backup, servers and SAN switching across enterprise production data centers.",
+      "Performed host integration, storage provisioning, clone/snapshot, remote replication, firmware upgrades and FRU replacement.",
+      "Provided 24×7 enterprise support and coordinated escalated incidents with EMC Technical Support."
+    ]
   }
 ];
 
-const certs = [
-  "Google Professional Cloud Architect",
+const projects = [
+  ["Storage Tech Refresh & Data Migration", "Dell EMC Unity 500F; migration from CX4-480 using SAN Copy, VMware vMotion and VPLEX Data Mobility.", ["Unity", "VPLEX", "SAN Copy", "vMotion"]],
+  ["VMware Data Center Consolidation", "ESXi, vCenter, vSphere HA, DRS, vMotion and vSAN implementation with physical workload consolidation.", ["VMware", "vSAN", "HA/DRS", "vMotion"]],
+  ["Storage, Backup & DC Migration", "Dell EMC XtremIO, NetWorker, Data Domain and RecoverPoint implementation for storage, protection and DR.", ["XtremIO", "NetWorker", "Data Domain", "RecoverPoint"]],
+  ["3-Site Active/Active Data Center", "Dell EMC VMAX 40K, Cisco MDS 9710 and VPLEX Metro architecture for highly available active/active services.", ["VMAX", "MDS 9710", "VPLEX Metro"]],
+  ["Dell EMC Storage & Modular Compute", "SC5020F all-flash storage and PowerEdge MX7000 modular chassis server infrastructure implementation.", ["SC5020F", "MX7000", "All-Flash"]],
+  ["Enterprise NAS & File Services", "Isilon/PowerScale, Synology and QNAP for SMB/NFS, AD integration, permissions, snapshots and replication.", ["PowerScale", "Synology", "QNAP", "SMB/NFS"]],
+  ["Commvault Enterprise Backup", "Three-data-center Commvault infrastructure with HPE StoreOnce and Hitachi VSP G350/E790 disk-library integration.", ["Commvault", "StoreOnce", "VSP", "3-DC"]],
+  ["Veeam Backup & Replication", "VMware/Hyper-V protection with HPE 3PAR repositories, proxies, retention, replication, Instant VM Recovery and health monitoring.", ["Veeam", "3PAR", "Instant Recovery"]],
+  ["Rubrik Data Protection", "Policy-based VMware and Hyper-V backup/recovery including retention, recovery workflows and backup validation.", ["Rubrik", "VMware", "Hyper-V"]],
+  ["Acronis Cyber Protect Cloud", "Hyper-V VM backup and Microsoft 365 protection for email and SharePoint, including backup and archiving.", ["Acronis", "M365", "Hyper-V"]],
+  ["Hitachi Active/Active Data Center", "VSP 5100/5600/G350, Cisco MDS 9706 and Hitachi GAD/HUR for active/active data-center services.", ["Hitachi VSP", "GAD", "HUR", "MDS 9706"]],
+  ["NetApp AFF Enterprise Storage", "AFF A300 with ONTAP, SVMs, aggregates, volumes, LUNs, SMB/NFS, iSCSI/FC, SnapMirror and VMware integration.", ["NetApp AFF", "ONTAP", "SnapMirror", "FC"]],
+  ["HPE Storage & SAN Infrastructure", "HPE 3PAR/MSA and Brocade 6510 including CPGs, volumes, host mapping, FC zoning and ISL configuration.", ["3PAR", "MSA", "Brocade", "FC"]],
+  ["Cross-Platform VM Migration", "VM migrations between VMware and Hyper-V using StarWind V2V and VMware vCenter Converter.", ["VMware", "Hyper-V", "V2V"]],
+  ["Multi-Cloud Infrastructure", "Infrastructure across AWS, GCP, Azure and OCI covering compute, networking, storage, IAM/RBAC, security and data protection.", ["AWS", "Azure", "GCP", "OCI"]],
+  ["Kubernetes & Docker Platform", "Containerized application platforms using Docker, Kubernetes and Rancher-managed K3s clusters.", ["Kubernetes", "Docker", "Rancher", "K3s"]],
+  ["CI/CD & Platform Automation", "Jenkins and GitHub Actions workflows for automated application build, test and deployment processes.", ["Jenkins", "GitHub Actions", "CI/CD"]],
+  ["Oracle & SAN Workload Modernization", "Multi-DC storage provisioning, SAN zoning and migration supporting Oracle RAC/ADG and NVMe-based workload transitions.", ["Oracle RAC", "ADG", "SAN", "NVMe"]]
+] as const;
+
+const tech = [
+  ["Enterprise Storage", HardDrive, ["Hitachi VSP G/E/5000 Series, HNAS", "NetApp AFF/FAS, ONTAP", "HPE 3PAR, MSA, Nimble, Alletra", "VMAX/PowerMax, PowerStore, Unity, VNX/VNXe", "XtremIO, VPLEX, SC Series, PowerVault ME", "Isilon/PowerScale, TrueNAS, Synology, QNAP"]],
+  ["Backup & Disaster Recovery", ShieldCheck, ["Commvault Backup & Recovery", "Veeam B&R / Cloud Connect / MSP", "Veritas NetBackup / Backup Exec", "Acronis Cyber Protect Cloud", "NetWorker, Avamar, IDPA/DPS", "PowerProtect/Data Domain, HPE StoreOnce", "Immutable backup, S3 object storage, tape"]],
+  ["SAN & Connectivity", Network, ["Cisco MDS, Brocade SAN", "Cisco DCNM/NDFC, Brocade SANnav", "FC/iSCSI, VSAN, zoning", "ISL trunking, Port Channel, IVR", "NPV/NPIV, PowerPath, HDLM, MPIO, DM-Multipath"]],
+  ["Servers & Compute", Server, ["Dell PowerEdge rack & MX modular", "HPE ProLiant, Superdome, Synergy", "IBM/Lenovo Power", "Cisco UCS", "Huawei FusionServer"]],
+  ["Virtualization & HCI", Layers3, ["VMware ESXi, vCenter, vSphere, vSAN", "Hyper-V, Failover Clustering, Replica", "Proxmox VE / KVM", "Sangfor, Huawei DCS/FusionCompute", "Dell EMC VxRail HCI"]],
+  ["Cloud & DevOps", Cloud, ["AWS, Azure, GCP, OCI", "GKE, EKS, AKS", "Jenkins, GitHub Actions", "AWS CodePipeline, Azure Pipelines", "Docker, Kubernetes, K3s, Rancher", "Helm, StorageClass, PV/PVC, CSI"]],
+  ["Operating Systems & Services", Terminal, ["RHEL, CentOS, Ubuntu", "Windows Server 2012–2022", "Active Directory, DNS, DHCP, GPO", "NGINX, BIND, NFS, Squid, HAProxy", "PowerShell, Bash, Python scripting"]],
+  ["Replication & Business Continuity", Workflow, ["Hitachi GAD, TrueCopy, ShadowImage, HUR", "NetApp SnapMirror, SnapVault", "Dell EMC RecoverPoint, SRDF", "Snapshots, clones, remote replication", "DR drills and recovery validation"]]
+] as const;
+
+const certifications = [
+  "Google Cloud Certified — Professional Cloud Architect",
   "Certified Kubernetes Administrator (CKA)",
+  "Hitachi Vantara Qualified Professional — Global-Active Device",
+  "Hitachi Vantara Qualified Professional — Universal Replicator",
+  "Microsoft Certified: Azure Fundamentals",
   "Red Hat Certified Engineer (RHCE)",
   "Red Hat Certified System Administrator (RHCSA)",
-  "VMware VCP-DCV",
-  "VMware vSAN Specialist",
   "Commvault Certified Professional",
-  "Azure Fundamentals",
-  "Hitachi GAD + UR",
-  "Dell Unity Implementation",
-  "Dell PowerEdge MX",
-  "Dell Midrange Storage Architect",
-  "Oracle Cloud Infrastructure Foundations",
-  "OCI Architect",
+  "VMware Certified Specialist — vSAN",
+  "VMware Certified Professional — Data Center Virtualization (VCP-DCV)",
+  "Dell Specialist — Implementation Engineer, PowerEdge MX Modular",
+  "Dell Specialist — Implementation Engineer, Unity Solutions",
+  "Dell Specialist — Technology Architect, Midrange Storage Solutions",
+  "Dell Associate — Information Storage and Management"
+];
+
+const training = [
+  "Hitachi Ops Center Administration & Replication — Singapore", "Managing Hitachi Universal Replicator — Singapore",
+  "Managing In-System Replication — Singapore", "Operating and Managing Global-Active Device — Singapore",
+  "Dell EMC VNX Unified Storage Installation & Maintenance — Singapore", "Cisco & Brocade SAN Management — Singapore",
+  "Dell EMC Avamar Management, Installation & Configuration", "Dell EMC VMAX3 Installation & Maintenance",
+  "Dell EMC NetWorker Implementation & Management", "Data Protection & Management", "VPLEX Implementation",
+  "NetApp ONTAP 9.8 Cluster Administration & Data Protection", "DCMDS — Configuring Cisco MDS 9000 Series Switches",
+  "VMware vSphere: Install, Configure", "VMware vSAN: Deploy and Manage", "Commvault Professional Foundations & Advanced"
 ];
 
 function SectionTitle({ kicker, title, body }: { kicker: string; title: string; body?: string }) {
-  return (
-    <div className="mb-10 max-w-3xl">
-      <div className="kicker mb-3">{kicker}</div>
-      <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{title}</h2>
-      {body && <p className="mt-4 text-slate-400 leading-7">{body}</p>}
-    </div>
-  );
+  return <div className="mb-10 max-w-4xl"><div className="kicker mb-3">{kicker}</div><h2 className="text-3xl font-bold tracking-tight md:text-4xl">{title}</h2>{body && <p className="mt-4 text-slate-400 leading-7">{body}</p>}</div>;
 }
 
 export default function Home() {
-  return (
-    <main>
-      <header className="fixed top-0 z-50 w-full border-b border-slate-800/70 bg-[#07111f]/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-          <a href="#" className="font-bold tracking-tight">IK<span className="text-sky-400">.</span></a>
-          <nav className="hidden gap-6 text-sm text-slate-300 md:flex">
-            <a href="#about" className="hover:text-white">About</a>
-            <a href="#experience" className="hover:text-white">Experience</a>
-            <a href="#projects" className="hover:text-white">Projects</a>
-            <a href="#skills" className="hover:text-white">Technologies</a>
-            <a href="#certifications" className="hover:text-white">Certifications</a>
-            <a href="#contact" className="hover:text-white">Contact</a>
-          </nav>
-          <a href="#contact" className="rounded-lg border border-slate-700 px-3 py-2 text-xs font-medium hover:border-sky-400/50">Let's connect</a>
-        </div>
-      </header>
+  return <main>
+    <header className="fixed top-0 z-50 w-full border-b border-slate-800/70 bg-[#07111f]/90 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
+        <a href="#home" className="font-bold tracking-tight">IK<span className="text-sky-400">.</span></a>
+        <nav className="hidden gap-5 text-sm text-slate-300 lg:flex">
+          {[["About","about"],["Experience","experience"],["Projects","projects"],["Technology","technology"],["Credentials","credentials"],["Education","education"]].map(([n,id]) => <a key={id} href={`#${id}`} className="hover:text-white">{n}</a>)}
+        </nav>
+        <a href="#contact" className="rounded-lg border border-slate-700 px-3 py-2 text-xs font-medium hover:border-sky-400/50">Contact</a>
+      </div>
+    </header>
 
-      <section className="grid-bg relative overflow-hidden border-b border-slate-800/60 pt-36">
-        <div className="section flex min-h-[620px] items-center">
-          <div className="max-w-4xl">
-            <div className="kicker mb-5">IT Infrastructure • Cloud • Technology Architect</div>
-            <h1 className="text-5xl font-extrabold leading-[1.04] tracking-tight md:text-7xl">
-              Ibrahim Khalil
-            </h1>
-            <p className="mt-5 text-xl font-medium text-slate-300 md:text-2xl">
-              Professional Certified Engineer &amp; Technology Architect
-            </p>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-slate-400 md:text-lg">
-              Senior infrastructure engineering professional focused on enterprise storage,
-              backup &amp; disaster recovery, virtualization, cloud platforms, Kubernetes,
-              networking and platform DevOps.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#projects" className="inline-flex items-center gap-2 rounded-xl bg-sky-400 px-5 py-3 font-semibold text-slate-950 hover:bg-sky-300">
-                Explore projects <ArrowUpRight size={17} />
-              </a>
-              <a href="#experience" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-3 font-semibold hover:border-slate-500">
-                Career timeline <ChevronRight size={17} />
-              </a>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-2">
-              {["12+ Years Experience", "Enterprise Infrastructure", "Multi-Cloud", "Storage & DR", "Kubernetes"].map(x => <span className="tag" key={x}>{x}</span>)}
-            </div>
+    <section id="home" className="grid-bg relative overflow-hidden border-b border-slate-800/60 pt-28">
+      <div className="section flex min-h-[690px] items-center">
+        <div className="max-w-5xl">
+          <div className="kicker mb-5">Storage & SAN · Backup & DR · Virtualization · Cloud · Kubernetes & DevOps</div>
+          <h1 className="text-5xl font-extrabold leading-[1.02] tracking-tight md:text-7xl">Ibrahim Khalil</h1>
+          <p className="mt-5 text-xl font-semibold text-slate-200 md:text-3xl">Professional Certified Engineer &amp; Technology Architect</p>
+          <p className="mt-6 max-w-4xl text-base leading-8 text-slate-400 md:text-lg">12+ years designing, implementing, administering, migrating and supporting enterprise on-premises and cloud infrastructure. Deep hands-on experience across enterprise storage, SAN fabrics, backup &amp; disaster recovery, virtualization, servers, multi-cloud, Kubernetes and CI/CD.</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#projects" className="btn-primary">Explore 50+ projects <ArrowUpRight size={17}/></a>
+            <a href="/Ibrahim-Khalil-CV.pdf" className="btn-secondary"><Download size={17}/> Download CV</a>
+            <a href="https://www.linkedin.com/in/ibrahim88ku/" target="_blank" rel="noreferrer" className="btn-secondary"><Linkedin size={17}/> LinkedIn</a>
+          </div>
+          <div className="mt-10 grid max-w-4xl grid-cols-2 gap-3 md:grid-cols-4">
+            {[["12+","Years experience"],["50+","Projects"],["200+","Implementations"],["4","Major clouds"]].map(([v,l]) => <div className="metric" key={l}><div className="text-2xl font-extrabold text-white">{v}</div><div className="mt-1 text-xs text-slate-500">{l}</div></div>)}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="about" className="section">
-        <SectionTitle kicker="01 / About" title="A career built around complex infrastructure." body="This portfolio is designed to document the engineering behind the environments — not just list technologies. It brings together professional experience, major implementations, architecture decisions, troubleshooting and hands-on technical work." />
-        <div className="grid gap-5 md:grid-cols-3">
-          <div className="card md:col-span-2">
-            <Server className="mb-5 text-sky-300" />
-            <h3 className="text-xl font-semibold">Infrastructure-first engineering</h3>
-            <p className="mt-3 leading-7 text-slate-400">
-              Experience spans enterprise data-center infrastructure, storage, SAN fabrics,
-              backup, disaster recovery, virtualization and modern cloud platforms.
-              The focus is on dependable platforms, operational resilience and practical implementation.
-            </p>
-          </div>
-          <div className="card">
-            <ShieldCheck className="mb-5 text-emerald-300" />
-            <h3 className="text-xl font-semibold">Reliability &amp; recovery</h3>
-            <p className="mt-3 leading-7 text-slate-400">
-              Backup, recovery, DR design, storage resilience and infrastructure troubleshooting
-              are recurring themes across the portfolio.
-            </p>
-          </div>
-        </div>
-      </section>
+    <section id="about" className="section">
+      <SectionTitle kicker="01 / Professional profile" title="Enterprise infrastructure engineering from architecture to production operations." body="My career combines solution architecture, implementation, migration, L3 troubleshooting and operational ownership across mission-critical infrastructure. I have delivered projects for FinTech, Banking/BFSI, Telecom, Defense, Government and enterprise customers."/>
+      <div className="grid gap-5 md:grid-cols-3">
+        <div className="card md:col-span-2"><Cpu className="mb-5 text-sky-300"/><h3 className="text-xl font-semibold">Architecture + hands-on delivery</h3><p className="mt-3 leading-7 text-slate-400">I work across the full infrastructure lifecycle: requirements, assessment, architecture, implementation, migration, validation, performance optimization, protection, DR and operational support. My strongest depth is in enterprise storage, SAN and data protection, extended by virtualization, cloud and container platforms.</p></div>
+        <div className="card"><MapPin className="mb-5 text-emerald-300"/><h3 className="text-xl font-semibold">Dhaka, Bangladesh</h3><p className="mt-3 leading-7 text-slate-400">Experienced with enterprise production environments, OEM/partner delivery, multi-data-center operations and remote technical engagements.</p></div>
+      </div>
+    </section>
 
-      <section id="experience" className="section border-t border-slate-800/60">
-        <SectionTitle kicker="02 / Experience" title="Professional experience" />
-        <div className="relative border-l border-slate-800 pl-7">
-          <div className="absolute -left-[5px] top-2 h-2 w-2 rounded-full bg-sky-400" />
-          <div className="card">
-            <div className="flex flex-col justify-between gap-2 md:flex-row">
-              <div>
-                <div className="kicker">Jul 2022 — Present</div>
-                <h3 className="mt-2 text-2xl font-bold">Lead Engineer, Platform Infrastructure &amp; DevOps</h3>
-                <p className="mt-1 text-slate-400">Nagad Ltd. • FinTech</p>
-              </div>
-              <span className="tag h-fit">Current</span>
-            </div>
-            <p className="mt-6 leading-7 text-slate-400">
-              Leading and contributing to platform infrastructure engineering across storage,
-              backup, virtualization, data-center workloads, cloud and Kubernetes operations.
-              Recent work includes database workload offload, Oracle storage provisioning and
-              migration, SAN/NVMe transitions, Elastic workloads, DFS/RAC environments,
-              Commvault/NetApp/HPE/Hitachi operations and shared persistent storage for Kubernetes.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {["Dell EMC", "NetApp", "Hitachi", "HPE", "Commvault", "Oracle", "Kubernetes", "Cisco", "VMware"].map(x => <span className="tag" key={x}>{x}</span>)}
-            </div>
-          </div>
-          <div className="mt-7 card">
-            <div className="kicker">Previous experience</div>
-            <h3 className="mt-2 text-xl font-bold">Telecom &amp; Enterprise Infrastructure</h3>
-            <p className="mt-3 leading-7 text-slate-400">
-              Earlier engineering experience across telecom and enterprise environments,
-              building the foundation in servers, storage, virtualization, networking,
-              backup and data-center operations.
-            </p>
-          </div>
-        </div>
-      </section>
+    <section id="experience" className="section border-t border-slate-800/60">
+      <SectionTitle kicker="02 / Career" title="Professional experience" body="Progression from enterprise implementation and 24×7 support to technical leadership, architecture and platform infrastructure engineering."/>
+      <div className="space-y-6">
+        {experience.map((e,i) => <article className="card" key={e.role}>
+          <div className="grid gap-5 md:grid-cols-[220px_1fr]"><div><div className="kicker">{e.period}</div><div className="mt-3 text-xs text-slate-500">Role {String(i+1).padStart(2,"0")}</div></div><div><h3 className="text-xl font-bold md:text-2xl">{e.role}</h3><p className="mt-1 text-sky-200/80">{e.company}</p><ul className="mt-5 space-y-3">{e.bullets.map(b => <li key={b} className="flex gap-3 text-sm leading-6 text-slate-400"><CheckCircle2 size={16} className="mt-1 shrink-0 text-sky-400/70"/>{b}</li>)}</ul></div></div>
+        </article>)}
+      </div>
+    </section>
 
-      <section id="projects" className="section border-t border-slate-800/60">
-        <SectionTitle kicker="03 / Selected projects" title="What I have actually engineered" body="A first-version project catalogue. The next iteration can turn each entry into a dedicated case study with sanitized architecture diagrams, implementation steps, challenges and outcomes." />
-        <div className="grid gap-5 md:grid-cols-2">
-          {projects.map((p, i) => (
-            <article className="card group" key={p.title}>
-              <div className="flex items-start justify-between">
-                <span className="kicker">{String(i + 1).padStart(2, "0")} • {p.area}</span>
-                <ArrowUpRight size={18} className="text-slate-600 group-hover:text-sky-300" />
-              </div>
-              <h3 className="mt-4 text-xl font-bold">{p.title}</h3>
-              <p className="mt-3 leading-7 text-slate-400">{p.text}</p>
-              <div className="mt-5 flex flex-wrap gap-2">{p.tags.map(t => <span className="tag" key={t}>{t}</span>)}</div>
-            </article>
-          ))}
-        </div>
-      </section>
+    <section id="projects" className="section border-t border-slate-800/60">
+      <SectionTitle kicker="03 / Project portfolio" title="Selected enterprise projects & implementations" body="50+ projects and 200+ implementations across storage, SAN, servers, backup/recovery, DR, virtualization, cloud, Kubernetes/K3s and CI/CD. The entries below combine CV-selected work with additional current technical portfolio themes."/>
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {projects.map(([title,text,tags],i) => <article className="card group" key={title}><div className="flex items-start justify-between"><span className="kicker">Project {String(i+1).padStart(2,"0")}</span><ArrowUpRight size={18} className="text-slate-600 group-hover:text-sky-300"/></div><h3 className="mt-4 text-lg font-bold">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-400">{text}</p><div className="mt-5 flex flex-wrap gap-2">{tags.map(t => <span className="tag" key={t}>{t}</span>)}</div></article>)}
+      </div>
+    </section>
 
-      <section id="skills" className="section border-t border-slate-800/60">
-        <SectionTitle kicker="04 / Technology" title="Technology landscape" />
-        <div className="grid gap-4 md:grid-cols-2">
-          {skills.map(([title, detail], i) => {
-            const icons = [Database, Boxes, Server, Cloud, Terminal, Network];
-            const Icon = icons[i];
-            return <div className="card flex gap-5" key={title}>
-              <Icon className="mt-1 shrink-0 text-sky-300" />
-              <div><h3 className="font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-400">{detail}</p></div>
-            </div>;
-          })}
-        </div>
-      </section>
+    <section id="technology" className="section border-t border-slate-800/60">
+      <SectionTitle kicker="04 / Technology stack" title="Platforms, products & engineering domains" body="A multi-vendor technology landscape developed through production operations, customer implementations, migrations, support engagements, training and architecture work."/>
+      <div className="grid gap-5 md:grid-cols-2">
+        {tech.map(([title,Icon,items]) => <div className="card" key={title}><Icon className="mb-4 text-sky-300"/><h3 className="text-lg font-bold">{title}</h3><div className="mt-4 grid gap-2">{items.map(x => <div key={x} className="flex gap-2 text-sm leading-6 text-slate-400"><span className="mt-[10px] h-1 w-1 shrink-0 rounded-full bg-sky-400"/>{x}</div>)}</div></div>)}
+      </div>
+    </section>
 
-      <section id="certifications" className="section border-t border-slate-800/60">
-        <SectionTitle kicker="05 / Certifications" title="Professional certifications" body="Selected certifications and credentials represented from the current career information. Credential IDs and verification links can be added in the next content pass." />
-        <div className="grid gap-3 md:grid-cols-2">
-          {certs.map((c, i) => <div className="flex items-center gap-4 rounded-xl border border-slate-800 bg-slate-900/40 p-4" key={c}>
-            <span className="font-mono text-xs text-sky-400">{String(i + 1).padStart(2, "0")}</span>
-            <span className="text-sm text-slate-200">{c}</span>
-          </div>)}
-        </div>
-      </section>
+    <section id="credentials" className="section border-t border-slate-800/60">
+      <SectionTitle kicker="05 / Credentials" title="Professional certifications & technical training" body="Vendor and platform credentials spanning cloud, Kubernetes, Linux, virtualization, enterprise storage, replication and data protection."/>
+      <div className="grid gap-8 lg:grid-cols-2">
+        <div><h3 className="mb-4 flex items-center gap-2 text-xl font-bold"><Award className="text-sky-300"/> Certifications</h3><div className="space-y-2">{certifications.map((c,i) => <div className="credential" key={c}><span className="font-mono text-xs text-sky-400">{String(i+1).padStart(2,"0")}</span><span>{c}</span></div>)}</div></div>
+        <div><h3 className="mb-4 flex items-center gap-2 text-xl font-bold"><BookOpen className="text-sky-300"/> Professional training</h3><div className="space-y-2">{training.map((c,i) => <div className="credential" key={c}><span className="font-mono text-xs text-sky-400">{String(i+1).padStart(2,"0")}</span><span>{c}</span></div>)}</div></div>
+      </div>
+    </section>
 
-      <section className="section border-t border-slate-800/60">
-        <SectionTitle kicker="06 / Architecture" title="From CV to engineering case studies" body="The next version should make the technical depth the centrepiece: sanitized architecture diagrams, before/after designs, migration paths, troubleshooting notes and measurable outcomes for each major project." />
-        <div className="card overflow-hidden">
-          <div className="grid gap-0 md:grid-cols-5">
-            {["Requirement", "Architecture", "Implementation", "Validation", "Outcome"].map((x, i) => (
-              <div key={x} className="border-b border-slate-800 p-5 md:border-b-0 md:border-r last:md:border-r-0">
-                <div className="font-mono text-xs text-sky-400">0{i + 1}</div>
-                <div className="mt-2 font-semibold">{x}</div>
-                <div className="mt-2 text-xs leading-5 text-slate-500">Documented as a reusable technical case-study section.</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <section id="education" className="section border-t border-slate-800/60">
+      <SectionTitle kicker="06 / Education & research" title="Academic background"/>
+      <div className="grid gap-5 md:grid-cols-2">
+        <div className="card"><GraduationCap className="mb-4 text-sky-300"/><div className="kicker">2018</div><h3 className="mt-2 text-xl font-bold">M.Sc. in Computer Science</h3><p className="mt-2 text-slate-400">Jahangirnagar University · Savar, Dhaka</p><p className="mt-2 text-sm text-slate-500">CGPA 3.58 / 4.00</p></div>
+        <div className="card"><GraduationCap className="mb-4 text-sky-300"/><div className="kicker">2013</div><h3 className="mt-2 text-xl font-bold">B.Sc. (Engg.) in Electronics & Communication Engineering</h3><p className="mt-2 text-slate-400">Khulna University · School of Science, Engineering & Technology</p><p className="mt-2 text-sm text-slate-500">CGPA 2.76 / 4.00</p></div>
+        <div className="card md:col-span-2"><BookOpen className="mb-4 text-emerald-300"/><div className="kicker">Research & publication</div><h3 className="mt-2 text-xl font-bold">WDM Transmission for Free Space Optics under Different Atmospheric Conditions</h3><p className="mt-3 text-sm leading-6 text-slate-400">STM Journals, Trends in Opto-electro & Optical Communications, Vol. 4, Issue 1, ISSN 2231-0401, 2014.</p><a className="mt-4 inline-flex items-center gap-2 text-sm text-sky-300 hover:text-sky-200" href="https://engineeringjournals.stmjournals.in/index.php/TOEOC/article/view/1829" target="_blank" rel="noreferrer">Publication reference <ExternalLink size={14}/></a></div>
+      </div>
+    </section>
 
-      <section id="contact" className="section border-t border-slate-800/60 pb-12">
-        <div className="card text-center">
-          <div className="kicker">07 / Contact</div>
-          <h2 className="mt-3 text-3xl font-bold">Let's connect professionally.</h2>
-          <p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-400">
-            For infrastructure architecture, storage, backup &amp; DR, cloud, virtualization,
-            Kubernetes or platform engineering opportunities.
-          </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a className="inline-flex items-center gap-2 rounded-xl bg-sky-400 px-5 py-3 font-semibold text-slate-950" href="mailto:ibrahim88ku@gmail.com"><Mail size={17} /> Email</a>
-            <a className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-3" href="https://www.linkedin.com/in/ibrahim88ku/" target="_blank"><Linkedin size={17} /> LinkedIn</a>
-            <a className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-3" href="https://github.com/ibrahim88ku" target="_blank"><Github size={17} /> GitHub</a>
-            <a className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-3" href="/resume.pdf"><Download size={17} /> Resume</a>
-          </div>
-        </div>
-        <footer className="pt-10 text-center text-xs text-slate-600">
-          © {new Date().getFullYear()} Ibrahim Khalil. Built as a technical portfolio.
-        </footer>
-      </section>
-    </main>
-  );
+    <section className="section border-t border-slate-800/60">
+      <SectionTitle kicker="07 / Engineering approach" title="From requirement to resilient production platform"/>
+      <div className="grid gap-3 md:grid-cols-5">{[["01","Assess"],["02","Architect"],["03","Implement"],["04","Validate"],["05","Operate & Improve"]].map(([n,x]) => <div className="card" key={x}><div className="kicker">{n}</div><div className="mt-2 font-semibold">{x}</div></div>)}</div>
+    </section>
+
+    <section id="contact" className="section border-t border-slate-800/60 pb-12">
+      <div className="card text-center"><div className="kicker">08 / Contact</div><h2 className="mt-3 text-3xl font-bold">Connect for infrastructure & technology engineering.</h2><p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-400">Enterprise storage, SAN, backup &amp; DR, virtualization, cloud, Kubernetes, DevOps and platform infrastructure opportunities.</p><div className="mt-7 flex flex-wrap justify-center gap-3"><a className="btn-primary" href="mailto:ibrahim88ku@gmail.com"><Mail size={17}/> Email</a><a className="btn-secondary" href="https://www.linkedin.com/in/ibrahim88ku/" target="_blank" rel="noreferrer"><Linkedin size={17}/> LinkedIn</a><a className="btn-secondary" href="https://github.com/ibrahim88ku" target="_blank" rel="noreferrer"><Github size={17}/> GitHub</a><a className="btn-secondary" href="/Ibrahim-Khalil-CV.pdf"><Download size={17}/> CV</a></div></div>
+      <footer className="pt-10 text-center text-xs text-slate-600">© {new Date().getFullYear()} Ibrahim Khalil · Professional Certified Engineer & Technology Architect</footer>
+    </section>
+  </main>;
 }

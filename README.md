@@ -1,58 +1,19 @@
-# Ibrahim Khalil — Professional Technical Portfolio
+# Ibrahim Khalil — Portfolio V2
 
-A static Next.js portfolio for GitHub Pages / Cloudflare Pages.
+Detailed technical portfolio based on the September 2026 CV, expanded with current enterprise infrastructure project themes.
 
-## Requirements
-
-- Node.js 20+
-- npm
-
-## Run locally
-
+## Local test
 ```bash
 npm install
-npm run dev
-```
-
-Open http://localhost:3000
-
-## Production build
-
-```bash
 npm run build
 ```
+Static export is generated in `out/`.
 
-The static site is generated in `out/`.
+## Deploy
+Push to `main`; the GitHub Pages workflow deploys the static export automatically.
 
-## Deploy to GitHub Pages
-
-1. Create a GitHub repository, for example `ibrahim88ku.github.io`.
-2. Push this project.
-3. Configure GitHub Pages to deploy the `out` directory using your preferred GitHub Actions workflow, or use a static-export deployment workflow.
-4. Add a custom domain later if desired.
-
-## Important content placeholders
-
-Before public launch, replace:
-
-- `your-email@example.com`
-- `/resume.pdf`
-- Any project detail that should not be public
-- Certification credential IDs / verification URLs
-- Missing employer history and exact dates
-- Project metrics and outcomes
-
-Do not publish confidential employer information such as internal IPs, credentials,
-private hostnames, customer data or proprietary architecture.
-
-## Suggested v2
-
-- Dedicated `/projects/<slug>` pages
-- Project search/filter
-- Architecture diagrams
-- Detailed career timeline
-- Certification verification links
-- Downloadable polished CV
-- Technical articles / lab notes
-- SEO sitemap and OpenGraph image
-- Optional custom domain
+## Main content
+- `app/page.tsx` — profile, career, projects, technology stack, certifications, training, education and contact
+- `app/globals.css` — design system
+- `app/layout.tsx` — SEO and metadata
+- `public/Ibrahim-Khalil-CV.pdf` — downloadable CV
