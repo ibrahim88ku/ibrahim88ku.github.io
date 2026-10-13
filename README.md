@@ -21,3 +21,7 @@ Review international engagement wording and technology keywords before publishin
 - Telemetry is animated continuously in the browser with simulated values. "CONNECTED" is a visual indicator only, **not a claim of connectivity to real monitoring systems**.
 - Ten review cards are **illustrative draft copy, not actual client endorsements**. Replace with verified, permission-approved testimonials before publishing them as reviews.
 - The profile location card was removed; core technical competencies are unchanged.
+
+## V6 changes
+- Three-column Client Feedback design using editorial highlight copy, not attributed testimonials. Replace with real approved reviews before labeling as verified feedback.
+- Telemetry header places LIVE TELEMETRY left and CONNECTED right. Simulated browser-generated telemetry remains unchanged; CONNECTED is a visual label, not a real data connection.

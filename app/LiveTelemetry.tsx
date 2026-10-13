@@ -32,7 +32,7 @@ export default function LiveTelemetry() {
     return () => window.clearInterval(timer);
   }, []);
   return <div className="telemetry-panel glass" aria-label="Animated simulated telemetry display; no live infrastructure connection">
-    <div className="telemetry-heading"><span className="live-dot"/> LIVE TELEMETRY</div>
+    <div className="telemetry-heading"><span className="live-dot"/> LIVE TELEMETRY <span className="telemetry-connected" style={{marginLeft:"auto"}}>CONNECTED</span></div>
     {series.map(s => {
       const width = 330, height = 96;
       const points = s.values.map((v, i) => `${(i / (COUNT - 1) * width).toFixed(2)},${(height - 8 - (v - s.min) / (s.max - s.min) * (height - 16)).toFixed(2)}`).join(" ");
@@ -46,6 +46,6 @@ export default function LiveTelemetry() {
         </svg>
       </div>;
     })}
-    <div className="telemetry-foot"><span className="telemetry-connected">CONNECTED</span><span>Visual simulation · no infrastructure data source</span></div>
+
   </div>;
 }
