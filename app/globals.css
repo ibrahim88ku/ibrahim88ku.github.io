@@ -17,3 +17,19 @@ body { margin: 0; background: #07111f; color: #e7edf5; font-family: Inter, ui-sa
 .btn-primary { @apply inline-flex items-center gap-2 rounded-xl bg-sky-400 px-5 py-3 font-semibold text-slate-950 transition hover:bg-sky-300; }
 .btn-secondary { @apply inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-3 font-semibold transition hover:border-slate-500 hover:bg-slate-900/60; }
 .credential { @apply flex gap-4 rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-300; }
+/* V3 liquid-glass visual system: layered translucent surfaces, refracted light and circuit-like grid. */
+:root { color-scheme: dark; }
+body { background: #050b19; background-image: radial-gradient(ellipse at 85% 5%, rgba(14,165,233,.16),transparent 34%),radial-gradient(ellipse at 10% 40%,rgba(99,102,241,.10),transparent 36%),radial-gradient(ellipse at 90% 82%,rgba(20,184,166,.10),transparent 36%); background-attachment: fixed; }
+.grid-bg { background-image: radial-gradient(circle at 80% 22%, rgba(46,198,255,.22),transparent 28%),radial-gradient(circle at 18% 75%,rgba(118,92,255,.15),transparent 30%),linear-gradient(rgba(124,184,235,.065) 1px,transparent 1px),linear-gradient(90deg,rgba(124,184,235,.065) 1px,transparent 1px);background-size:auto,auto,48px 48px,48px 48px; }
+.hero-atmosphere:before { content:""; position:absolute; width:680px; height:680px; right:-220px; top:10%; pointer-events:none; border-radius:50%; background:radial-gradient(circle at 35% 35%,rgba(116,235,255,.20),rgba(47,102,227,.10) 40%,transparent 70%); filter:blur(18px); }
+.hero-atmosphere:after {content:""; position:absolute; pointer-events:none; width:360px;height:360px; right:12%;top:23%; border:1px solid rgba(125,220,255,.13); border-radius:50%;box-shadow:0 0 0 46px rgba(79,167,255,.018),0 0 0 94px rgba(79,167,255,.016),inset 0 0 90px rgba(48,150,242,.06); }
+.glass {background:linear-gradient(135deg,rgba(31,59,91,.48),rgba(9,22,43,.52) 52%,rgba(30,53,79,.28)); border:1px solid rgba(171,219,255,.20); backdrop-filter:blur(26px) saturate(145%); -webkit-backdrop-filter:blur(26px) saturate(145%);box-shadow:inset 0 1px 0 rgba(220,245,255,.11),0 18px 50px rgba(0,0,0,.17); }
+.card {border-radius:24px;position:relative;overflow:hidden;}
+.card:hover {border-color:rgba(122,222,255,.52);box-shadow:inset 0 1px 0 rgba(220,245,255,.18),0 22px 60px rgba(12,92,159,.18);}
+.metric,.credential {background:linear-gradient(135deg,rgba(28,54,85,.55),rgba(7,21,40,.45));border-color:rgba(156,208,248,.17);backdrop-filter:blur(16px);}
+.hero-disciplines {display:flex;flex-wrap:wrap;gap:9px;}
+.hero-discipline {display:inline-flex;align-items:center;gap:9px;padding:10px 13px;border:1px solid rgba(124,222,255,.34);border-radius:999px;background:linear-gradient(130deg,rgba(33,113,164,.30),rgba(19,36,75,.30));box-shadow:inset 0 1px 0 rgba(220,250,255,.16),0 5px 25px rgba(6,105,160,.12);backdrop-filter:blur(18px);font:600 10px/1.3 'JetBrains Mono',monospace;letter-spacing:.12em;color:#c5f2ff;}
+.discipline-dot {height:6px;width:6px;border-radius:50%;background:#54f1ed;box-shadow:0 0 12px #54f1ed;}
+.btn-primary {background:linear-gradient(120deg,#65edff,#77a6ff);box-shadow:0 9px 30px rgba(35,165,225,.22);}
+.btn-secondary {background:rgba(45,80,112,.24);backdrop-filter:blur(16px);border-color:rgba(161,216,255,.30);}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}.card:hover{transform:none}}

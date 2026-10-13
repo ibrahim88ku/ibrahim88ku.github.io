@@ -1,19 +1,18 @@
-# Ibrahim Khalil — Portfolio V2
+# Ibrahim Khalil — Portfolio V3 (Liquid Glass)
 
-Detailed technical portfolio based on the September 2026 CV, expanded with current enterprise infrastructure project themes.
+Static Next.js portfolio for GitHub Pages, updated with:
 
-## Local test
-```bash
-npm install
-npm run build
-```
-Static export is generated in `out/`.
+- Sections in requested order: Professional profile, Technology stack, Project portfolio, Credentials, Career, Education & research, Engineering approach, Contact.
+- Expanded international OEM/client profile and nine technical competencies.
+- Expanded vendor/platform/engineering keywords across nine technical domains.
+- Liquid-glass visual design, technical grid, ambient gradients and responsive hero skill badges.
+- WhatsApp contact at `https://wa.me/8801918047976` (`@ibrahim88ku`) replacing GitHub contact button.
+- CV at `public/Ibrahim-Khalil-CV.pdf`.
 
-## Deploy
-Push to `main`; the GitHub Pages workflow deploys the static export automatically.
+## Deployment
 
-## Main content
-- `app/page.tsx` — profile, career, projects, technology stack, certifications, training, education and contact
-- `app/globals.css` — design system
-- `app/layout.tsx` — SEO and metadata
-- `public/Ibrahim-Khalil-CV.pdf` — downloadable CV
+Extract into existing repository, **preserving `.git/` and your existing package-lock.json and any workflow updates**. Run `npm ci` and `npm run build`; confirm `out/` exists, then commit and push to `main`. Your GitHub Pages Actions workflow publishes `out/`.
+
+Security note: original V2 package pins Next.js 14.2.15, which has known security advisories. Upgrade to a patched supported version in a separately tested change; do not use `npm audit fix --force` blindly.
+
+Review international engagement wording and technology keywords before publishing to ensure all statements reflect your experience.
