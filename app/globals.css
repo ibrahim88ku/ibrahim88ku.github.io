@@ -44,3 +44,15 @@ body { background: #050b19; background-image: radial-gradient(ellipse at 85% 5%,
 @media(max-width:1150px){.hero-content{flex-direction:column;align-items:stretch;justify-content:center}.telemetry-panel{width:min(100%,640px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.telemetry-heading,.telemetry-foot{grid-column:1/-1}.telemetry-row{margin-top:0}.dc-racks{width:100%;opacity:.55}}
 @media(max-width:640px){.brand-name{font-size:10px}.hero-discipline{font-size:12px;padding:10px 12px}.telemetry-panel{grid-template-columns:1fr}.telemetry-row svg{height:56px}.dc-racks{right:-70%;width:180%;opacity:.45}.section{padding-top:65px;padding-bottom:65px}}
 @media(prefers-reduced-motion:reduce){.dc-binary,.rack-unit i,.live-dot,.signal-line{animation:none}}
+/* V5 live status and transparent, moving telemetry */
+.brand-lockup{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.brand-online{display:inline-flex;align-items:center;gap:6px;font:700 9px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#66f7aa}
+.brand-online i{width:7px;height:7px;border-radius:50%;background:#4dff8b;box-shadow:0 0 9px #4dff8b;animation:online-pulse .55s steps(2,start) infinite}
+@keyframes online-pulse{50%{opacity:.15;box-shadow:none}}
+.telemetry-panel{background:rgba(5,19,34,.25)!important;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);border:1px solid rgba(136,218,255,.25);box-shadow:0 8px 35px rgba(0,0,0,.12)}
+.telemetry-row svg{height:72px;overflow:visible}
+.telemetry-meta strong{font-size:12px;font-variant-numeric:tabular-nums}
+.telemetry-foot{display:flex;justify-content:space-between;align-items:center;gap:9px;flex-wrap:wrap;text-align:left;font-size:8px}
+.telemetry-connected{color:#64f3a4;font-weight:800;letter-spacing:.14em}
+@media(max-width:640px){.telemetry-panel{background:rgba(5,19,34,.34)!important}}
+@media(prefers-reduced-motion:reduce){.brand-online i{animation:none}}

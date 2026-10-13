@@ -16,3 +16,8 @@ Extract into existing repository, **preserving `.git/` and your existing package
 Security note: original V2 package pins Next.js 14.2.15, which has known security advisories. Upgrade to a patched supported version in a separately tested change; do not use `npm audit fix --force` blindly.
 
 Review international engagement wording and technology keywords before publishing to ensure all statements reflect your experience.
+
+## V5 notes
+- Telemetry is animated continuously in the browser with simulated values. "CONNECTED" is a visual indicator only, **not a claim of connectivity to real monitoring systems**.
+- Ten review cards are **illustrative draft copy, not actual client endorsements**. Replace with verified, permission-approved testimonials before publishing them as reviews.
+- The profile location card was removed; core technical competencies are unchanged.
