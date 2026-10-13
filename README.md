@@ -25,3 +25,7 @@ Review international engagement wording and technology keywords before publishin
 ## V6 changes
 - Three-column Client Feedback design using editorial highlight copy, not attributed testimonials. Replace with real approved reviews before labeling as verified feedback.
 - Telemetry header places LIVE TELEMETRY left and CONNECTED right. Simulated browser-generated telemetry remains unchanged; CONNECTED is a visual label, not a real data connection.
+
+## V6.1 adjustments
+- Green CONNECTED telemetry label. Telemetry remains simulated, not a real monitoring feed.
+- Review heading changed to “Clients Feedback”; removed requested editorial footer. The review-style copy was generated for presentation and must not be attributed to real clients without their actual feedback.

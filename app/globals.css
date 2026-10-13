@@ -56,3 +56,6 @@ body { background: #050b19; background-image: radial-gradient(ellipse at 85% 5%,
 .telemetry-connected{color:#64f3a4;font-weight:800;letter-spacing:.14em}
 @media(max-width:640px){.telemetry-panel{background:rgba(5,19,34,.34)!important}}
 @media(prefers-reduced-motion:reduce){.brand-online i{animation:none}}
+
+/* V6.1: emphasize connection-status label */
+.telemetry-heading .telemetry-connected{color:#50f6a3!important;text-shadow:0 0 8px rgba(80,246,163,.55)}

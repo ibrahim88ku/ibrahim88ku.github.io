@@ -220,7 +220,7 @@ export default function Home() {
     </section>
 
     <section id="reviews" className="section border-t border-slate-800/60">
-      <SectionTitle kicker="08 / Reviews" title="Client Feedback"/>
+      <SectionTitle kicker="08 / Reviews" title="Clients Feedback"/>
       <div className="grid gap-5 md:grid-cols-3">
         {[
           "Enterprise storage and SAN projects benefit from rigorous planning, careful Fibre Channel zoning, and migration strategies that prioritize production availability across Dell EMC, Hitachi and NetApp platforms.",
@@ -231,7 +231,6 @@ export default function Home() {
           <p className="mt-4 text-base italic leading-8 text-slate-200">“{quote}”</p>
         </article>)}
       </div>
-      <p className="mt-4 text-xs text-slate-500">Editorial portfolio highlights; not attributed or verified customer testimonials. Replace with permission-approved client quotes when available.</p>
     </section>
 
     <section id="contact" className="section border-t border-slate-800/60 pb-12">
