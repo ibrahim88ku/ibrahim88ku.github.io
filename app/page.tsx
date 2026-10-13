@@ -1,7 +1,7 @@
 import {
   ArrowUpRight, Award, Boxes, BriefcaseBusiness, CheckCircle2, Cloud, Database,
   Download, ExternalLink, MessageCircle, GraduationCap, Linkedin, Mail, MapPin, Network,
-  Server, ShieldCheck, Terminal, BookOpen, Cpu, HardDrive, Layers3, Workflow
+  Server, ShieldCheck, Terminal, BookOpen, Cpu, HardDrive, Layers3, Workflow, Menu, X
 } from "lucide-react";
 
 const experience = [
@@ -90,10 +90,10 @@ const tech = [
   ["Backup, Recovery & Cyber Resilience", ShieldCheck, ["Commvault CommServe, MediaAgent, disk libraries, DDB, storage policies, Oracle RMAN, SQL Server, VMware and file agents", "Veeam Backup & Replication, proxies, repositories, SureBackup, Instant VM Recovery, backup copy and replication", "Veritas NetBackup/Backup Exec, Rubrik, Acronis Cyber Protect Cloud, Microsoft 365 protection", "Dell EMC NetWorker, Avamar, PowerProtect Data Domain, IDPA/DPS; HPE StoreOnce, tape and S3-compatible object storage", "3-2-1-1-0 protection principles, immutability/WORM, air-gapped copies, RPO/RTO, retention, restore testing and DR drills"]],
   ["Replication, HA & Disaster Recovery", Workflow, ["Hitachi Global-Active Device (GAD), Universal Replicator (HUR), TrueCopy (TC), ShadowImage (SI)", "Dell EMC VPLEX Metro, RecoverPoint, SRDF; NetApp SnapMirror, SnapVault", "Synchronous/asynchronous replication, consistency groups, journal volumes, quorum and split-brain considerations", "Active/active and active/passive data centers, site failover/failback, replication link recovery", "Business continuity design, recovery runbooks, DR testing, application consistency and validation"]],
   ["Servers, Compute & Data Center", Server, ["Dell PowerEdge R-series and MX7000 modular chassis; HPE ProLiant, Synergy, Superdome", "Cisco UCS, IBM/Lenovo servers, Huawei FusionServer", "RAID controllers, HBA, firmware, iDRAC/iLO, BIOS/UEFI, hardware diagnostics and lifecycle management", "Converged infrastructure, capacity planning, rack integration and operational monitoring"]],
-  ["Virtualization & HCI", Layers3, ["VMware ESXi, vCenter, vSphere HA/DRS, vMotion, Storage vMotion, vSAN, VCF fundamentals", "Microsoft Hyper-V, Failover Clustering, Live Migration, Hyper-V Replica, Cluster Shared Volumes", "Proxmox VE, KVM/QEMU, Corosync, HA Manager, Ceph/RBD concepts", "Dell VxRail, HCI, virtual networking, datastore lifecycle, P2V/V2V, StarWind V2V", "Availability design, VM migration, storage integration, performance tuning and recovery"]],
+  ["Virtualization & HCI", Layers3, ["VMware ESXi, vCenter, vSphere HA/DRS, vMotion, Storage vMotion, vSAN, VCF fundamentals", "Microsoft Hyper-V, Failover Clustering, Live Migration, Hyper-V Replica, Cluster Shared Volumes", "Proxmox VE, KVM/QEMU, Corosync, HA Manager, Ceph/RBD concepts", "Dell VxRail, Sangfor HCI, Huawei DCS/FusionCompute, HCI, virtual networking, datastore lifecycle, P2V/V2V, StarWind V2V", "Availability design, VM migration, storage integration, performance tuning and recovery"]],
   ["Public Cloud & Architecture", Cloud, ["AWS: Organizations, IAM/Identity Center, VPC, EC2, ECS/Fargate, S3, RDS/Aurora, ALB, Route 53, CloudFront, Amplify, SES/SNS, CloudWatch, KMS, Secrets Manager", "Microsoft Azure: VMs, VNets, storage, RBAC, Azure Backup, AKS, Azure Pipelines", "Google Cloud: IAM, VPC, Compute Engine, Cloud Storage, GKE and cloud architecture", "Oracle Cloud Infrastructure: IAM, VCN, compute, block/object storage and cloud networking", "Multi-account governance, least privilege, hybrid connectivity, cost awareness, security baselines and disaster recovery"]],
   ["Containers, Kubernetes & DevOps", Boxes, ["Docker, Kubernetes, K3s, Rancher, Helm, namespaces, RBAC, Ingress, Services and Deployments", "PersistentVolume/PersistentVolumeClaim, StorageClass, CSI drivers, dynamic provisioning, snapshots and storage integration", "AWS EKS, Azure AKS, Google GKE; container networking and persistent workloads", "Jenkins, GitHub Actions, GitLab CI/CD, AWS CodePipeline, Azure Pipelines", "Git, Terraform/IaC concepts, Bash, PowerShell, Python, automated build/test/deployment"]],
-  ["Operating Systems, Security & Observability", Terminal, ["RHEL, CentOS, Ubuntu, Linux systemd, LVM, multipath, NFS, SSH, SELinux and shell scripting", "Windows Server 2012–2022, Active Directory, DNS, DHCP, Group Policy, PowerShell", "NGINX, HAProxy, BIND, Squid, certificates/TLS, firewall and network troubleshooting", "Prometheus, Grafana, CloudWatch, ELK/Elasticsearch, syslog and performance metrics", "Patching, vulnerability remediation, least-privilege access, change management and incident analysis"]]
+  ["Operating Systems, Security & Observability", Terminal, ["RHEL, CentOS, Ubuntu, Linux systemd, LVM, multipath, NFS, SSH, SELinux and shell scripting", "Windows Server 2012–2022, Active Directory, DNS, DHCP, Group Policy, PowerShell", "NGINX, Apache HTTP Server, HAProxy, Squid (Linux forward/reverse proxy), BIND, certificates/TLS, firewall and network troubleshooting", "Messaging, streaming & caching: Apache Kafka, RabbitMQ, Redis; service availability, performance and operational troubleshooting", "Prometheus, Grafana, CloudWatch, ELK/Elasticsearch, syslog and performance metrics", "Patching, vulnerability remediation, least-privilege access, change management and incident analysis"]]
 ] as const;
 
 const certifications = [
@@ -127,22 +127,31 @@ function SectionTitle({ kicker, title, body }: { kicker: string; title: string; 
   return <div className="mb-10 max-w-4xl"><div className="kicker mb-3">{kicker}</div><h2 className="text-3xl font-bold tracking-tight md:text-4xl">{title}</h2>{body && <p className="mt-4 text-slate-400 leading-7">{body}</p>}</div>;
 }
 
+const navLinks = [["Profile","about"],["Technology","technology"],["Projects","projects"],["Credentials","credentials"],["Career","experience"],["Education","education"],["Approach","approach"],["Contact","contact"]];
+
+function GlobeIK({size=44}:{size?:number}) {return <span className="globe-logo" style={{width:size,height:size}} aria-label="IK globe logo"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" strokeWidth="2"/><ellipse cx="32" cy="32" rx="12" ry="27" fill="none" stroke="currentColor" strokeWidth="1.5" opacity=".65"/><path d="M5 32h54M11 18h42M11 46h42" fill="none" stroke="currentColor" strokeWidth="1.5" opacity=".55"/></svg><span>IK</span></span>}
+
+function DataCenterScene(){return <div className="datacenter-scene" aria-hidden="true"><div className="dc-binary">{Array.from({length:13},(_,i)=><span key={i}>{'101101001011010010100111000101001010110101100101101001'.slice(i,i+36)}</span>)}</div><div className="dc-racks">{Array.from({length:9},(_,r)=><div className="dc-rack" key={r}><div className="rack-label">RACK {String(r+1).padStart(2,'0')}</div>{Array.from({length:12},(_,u)=><div className="rack-unit" key={u}><i/><i/><b/></div>)}</div>)}</div><div className="dc-floor"/></div>}
+
+function Telemetry(){const rows=[{label:'IOPS',unit:'K',color:'#54e7ff',base:58,amp:19},{label:'Throughput',unit:'MB/s',color:'#9b8bff',base:50,amp:16},{label:'Latency',unit:'ms',color:'#54f0bd',base:36,amp:10}];return <div className="telemetry-panel glass" aria-label="Animated demonstration of simulated IOPS, throughput and latency; not live production data"><div className="telemetry-heading"><span className="live-dot"/> SIMULATED TELEMETRY <span>DEMO DATA</span></div>{rows.map((row,i)=>{const points=Array.from({length:100},(_,j)=>{const y=row.base+Math.sin(j*.24+i*1.7)*row.amp+Math.sin(j*.67+i)*6+Math.cos(j*.105)*5;return `${j*3.3},${Math.max(7,Math.min(90,y))}`}).join(' ');return <div className="telemetry-row" key={row.label}><div className="telemetry-meta"><span>{row.label}</span><span style={{color:row.color}}>{i===0?'38.2K':i===1?'1,248 MB/s':'2.4 ms'}</span></div><svg viewBox="0 0 330 100" preserveAspectRatio="none" role="img" aria-label={`${row.label} simulated animated trend`}><path d="M0 25H330 M0 50H330 M0 75H330" stroke="#9cc3e5" strokeOpacity=".10" strokeWidth="1" fill="none"/><polyline points={points} fill="none" stroke={row.color} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" className="signal-line" style={{animationDelay:`-${i*3}s`}}/></svg></div>})}<div className="telemetry-foot">ILLUSTRATIVE • NOT CONNECTED TO SYSTEMS</div></div>}
+
 export default function Home() {
   return <main>
     <header className="fixed top-0 z-50 w-full border-b border-slate-800/70 bg-[#07111f]/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-        <a href="#home" className="font-bold tracking-tight">IK<span className="text-sky-400">.</span></a>
+        <a href="#home" className="flex items-center gap-2 font-bold tracking-tight"><GlobeIK/><span className="brand-name">IBRAHIM KHALIL</span></a>
         <nav className="hidden gap-5 text-sm text-slate-300 lg:flex">
-          {[["Profile","about"],["Technology","technology"],["Projects","projects"],["Credentials","credentials"],["Career","experience"],["Education","education"],["Approach","approach"],["Contact","contact"]].map(([n,id]) => <a key={id} href={`#${id}`} className="hover:text-white">{n}</a>)}
+          {navLinks.map(([n,id]) => <a key={id} href={`#${id}`} className="hover:text-white">{n}</a>)}
         </nav>
-        <a href="#contact" className="rounded-lg border border-slate-700 px-3 py-2 text-xs font-medium hover:border-sky-400/50">Contact</a>
+        <details className="mobile-menu lg:hidden"><summary aria-label="Open navigation menu"><Menu size={22}/><span>Menu</span></summary><nav className="mobile-menu-list glass" aria-label="Mobile navigation">{navLinks.map(([n,id])=><a key={id} href={`#${id}`}>{n}</a>)}</nav></details>
       </div>
     </header>
 
     <section id="home" className="grid-bg hero-atmosphere relative overflow-hidden border-b border-slate-800/60 pt-28">
-      <div className="section flex min-h-[690px] items-center">
-        <div className="max-w-5xl">
-          <div className="hero-disciplines mb-7" aria-label="Core engineering disciplines">{["STORAGE & SAN", "BACKUP & DR", "VIRTUALIZATION", "CLOUD", "KUBERNETES & DEVOPS"].map((label,i) => <span className="hero-discipline" key={label}><span className="discipline-dot"/>{label}</span>)}</div>
+      <DataCenterScene/>
+      <div className="section hero-content relative z-10 flex min-h-[720px] items-center">
+        <div className="hero-copy max-w-5xl">
+          <div className="hero-disciplines mb-7" aria-label="Core engineering disciplines">{["STORAGE & SAN", "BACKUP & DR", "VIRTUALIZATION", "LINUX & WINDOWS", "CLOUD", "KUBERNETES & DEVOPS"].map((label,i) => <span className="hero-discipline" key={label}><span className="discipline-dot"/>{label}</span>)}</div>
           <h1 className="text-5xl font-extrabold leading-[1.02] tracking-tight md:text-7xl">Ibrahim Khalil</h1>
           <p className="mt-5 text-xl font-semibold text-slate-200 md:text-3xl">Professional Certified Engineer &amp; Technology Architect</p>
           <p className="mt-6 max-w-4xl text-base leading-8 text-slate-400 md:text-lg">12+ years designing, implementing, administering, migrating and supporting enterprise on-premises and cloud infrastructure. Deep hands-on experience across enterprise storage, SAN fabrics, backup &amp; disaster recovery, virtualization, servers, multi-cloud, Kubernetes and CI/CD.</p>
@@ -155,6 +164,7 @@ export default function Home() {
             {[["12+","Years experience"],["50+","Projects"],["200+","Implementations"],["4","Major clouds"]].map(([v,l]) => <div className="metric" key={l}><div className="text-2xl font-extrabold text-white">{v}</div><div className="mt-1 text-xs text-slate-500">{l}</div></div>)}
           </div>
         </div>
+        <Telemetry/>
       </div>
     </section>
 
