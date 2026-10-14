@@ -106,3 +106,10 @@ main > header {position:fixed}
 .ik-world-button:focus-visible{outline:2px solid #7deaff;outline-offset:3px}
 .ik-world-logo:hover .ik-world-word{filter:drop-shadow(0 0 6px #a3f2ff)}
 @media(prefers-reduced-motion:reduce){.ik-world-word{opacity:1!important}}
+
+/* V11 — clickable home logo and contact status */
+.ik-world-logo{cursor:pointer;border-radius:14px;text-decoration:none}
+.ik-world-logo:focus-visible{outline:2px solid #7deaff;outline-offset:3px}
+.brand-online{text-decoration:none;cursor:pointer;transition:color .2s ease,text-shadow .2s ease}
+.brand-online:hover,.brand-online:focus-visible{color:#b5ffdc;text-shadow:0 0 12px rgba(77,255,139,.8)}
+.brand-online:focus-visible{outline:2px solid #66f7aa;outline-offset:4px;border-radius:3px}

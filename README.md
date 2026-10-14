@@ -43,3 +43,9 @@ Removed globe imagery and replaced it with a text-only `IK.` monogram using the 
 
 ## V10 IK logo
 Restored the user-provided globe favicon artwork as the header logo, favicon and social preview emblem. The globe is stationary; only the IK glyphs animate with a particle assembly on initial load and on click. No After Effects runtime required; the effect is implemented with HTML Canvas.
+
+## V11 navigation and binary logo
+- The original globe logo remains; binary `0`/`1` particles gather into IK on load.
+- Clicking the logo bursts IK into binary digits, then navigates to `#home`.
+- The `ONLINE` status is now a separate link to `#contact`.
+- Respects reduced-motion preference and uses native canvas (no dependencies).
