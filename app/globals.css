@@ -113,3 +113,13 @@ main > header {position:fixed}
 .brand-online{text-decoration:none;cursor:pointer;transition:color .2s ease,text-shadow .2s ease}
 .brand-online:hover,.brand-online:focus-visible{color:#b5ffdc;text-shadow:0 0 12px rgba(77,255,139,.8)}
 .brand-online:focus-visible{outline:2px solid #66f7aa;outline-offset:4px;border-radius:3px}
+
+/* V11.1: slow, coordinated status indicators and compact header lockup */
+.brand-lockup{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px}
+.brand-name{text-decoration:none;line-height:1.15}
+.brand-online{line-height:1.1;width:max-content}
+.brand-online i{animation:status-breathe 1.8s ease-in-out infinite}
+.discipline-dot{animation:status-breathe 1.8s ease-in-out infinite}
+.live-dot{animation:status-breathe 1.8s ease-in-out infinite}
+@keyframes status-breathe{0%,100%{opacity:1;filter:brightness(1)}50%{opacity:.25;filter:brightness(.65)}}
+@media(prefers-reduced-motion:reduce){.brand-online i,.discipline-dot,.live-dot{animation:none}}

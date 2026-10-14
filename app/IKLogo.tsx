@@ -19,7 +19,7 @@ export default function IKLogo(){
   const points:{x:number;y:number}[]=[];
   if(mc){mc.font="800 92px Arial,sans-serif";mc.textAlign="center";mc.textBaseline="alphabetic";mc.fillStyle="#fff";mc.fillText("IK",128,156);
    const data=mc.getImageData(0,0,256,256).data;
-   for(let y=75;y<168;y+=4)for(let x=67;x<191;x+=4)if(data[(y*256+x)*4+3]>100)points.push({x:x/256,y:y/256});
+   for(let y=75;y<168;y+=3)for(let x=67;x<191;x+=3)if(data[(y*256+x)*4+3]>100)points.push({x:x/256,y:y/256});
   }
   function size(){const d=Math.min(devicePixelRatio||1,2);const w=host!.clientWidth,h=host!.clientHeight;canvas!.width=Math.round(w*d);canvas!.height=Math.round(h*d);ctx!.setTransform(d,0,0,d,0,0)}
   size();const observer=new ResizeObserver(size);observer.observe(host);
@@ -28,21 +28,21 @@ export default function IKLogo(){
    ctx!.clearRect(0,0,w,h);
    for(const p of dots){
     if(phase==="gather"){
-     p.x+=(p.tx-p.x)*.065;p.y+=(p.ty-p.y)*.065;
-     p.alpha=Math.min(1,p.alpha+.018);
+     p.x+=(p.tx-p.x)*.047;p.y+=(p.ty-p.y)*.047;
+     p.alpha=Math.min(1,p.alpha+.014);
     }else{
      p.x+=p.vx;p.y+=p.vy;p.vx*=.989;p.vy*=.989;
-     p.alpha=Math.max(0,1-elapsed/850);
+     p.alpha=Math.max(0,1-elapsed/1150);
     }
-    ctx!.font="bold 8px 'JetBrains Mono',monospace";
-    ctx!.fillStyle=`rgba(115,239,255,${p.alpha})`;
-    ctx!.shadowColor="#57e9ff";ctx!.shadowBlur=7;
+    ctx!.font="700 6px 'JetBrains Mono',monospace";
+    ctx!.fillStyle=`rgba(48,201,233,${p.alpha*.92})`;
+    ctx!.shadowColor="#57e9ff";ctx!.shadowBlur=1.4;
     ctx!.fillText(p.char,p.x,p.y);
    }
    ctx!.shadowBlur=0;
-   if(phase==="gather"&&elapsed>950&&glyph)glyph.style.opacity=String(Math.min(1,(elapsed-950)/380));
-   if(phase==="gather"&&elapsed>=1400){phase="idle";ctx!.clearRect(0,0,w,h);if(glyph)glyph.style.opacity="1";return}
-   if(phase==="burst"&&elapsed>=850){phase="idle";ctx!.clearRect(0,0,w,h);if(glyph)glyph.style.opacity="1";window.location.hash="home";document.getElementById("home")?.scrollIntoView({behavior:reduce?"auto":"smooth"});return}
+   if(phase==="gather"&&elapsed>1250&&glyph)glyph.style.opacity=String(Math.min(1,(elapsed-1250)/420));
+   if(phase==="gather"&&elapsed>=1750){phase="idle";ctx!.clearRect(0,0,w,h);if(glyph)glyph.style.opacity="1";return}
+   if(phase==="burst"&&elapsed>=1150){phase="idle";ctx!.clearRect(0,0,w,h);if(glyph)glyph.style.opacity="1";window.location.hash="home";document.getElementById("home")?.scrollIntoView({behavior:reduce?"auto":"smooth"});return}
    raf=requestAnimationFrame(frame);
   }
   const gather=()=>{
@@ -56,7 +56,7 @@ export default function IKLogo(){
    if(reduce){window.location.hash="home";document.getElementById("home")?.scrollIntoView({behavior:"auto"});return}
    cancelAnimationFrame(raf);clearTimeout(timeout);
    const w=host.clientWidth,h=host.clientHeight;
-   dots=points.map(p=>{const x=p.x*w,y=p.y*h,a=Math.atan2(y-h/2,x-w/2)+(Math.random()-.5)*.85,velocity=1.5+Math.random()*3.7;
+   dots=points.map(p=>{const x=p.x*w,y=p.y*h,a=Math.atan2(y-h/2,x-w/2)+(Math.random()-.5)*.85,velocity=1.1+Math.random()*2.1;
     return {x,y,tx:x,ty:y,vx:Math.cos(a)*velocity,vy:Math.sin(a)*velocity,char:Math.random()>.5?"1":"0",alpha:1};});
    if(glyph)glyph.style.opacity="0";
    phase="burst";start=performance.now();raf=requestAnimationFrame(frame);

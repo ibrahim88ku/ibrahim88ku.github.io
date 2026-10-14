@@ -140,7 +140,7 @@ export default function Home() {
   return <main><BinaryParticles/>
     <header className="fixed top-0 z-50 w-full border-b border-slate-800/70 bg-[#07111f]/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-        <div className="flex items-center gap-2 font-bold tracking-tight"><IKLogo/><a href="#home" className="brand-lockup" aria-label="Back to home"><span className="brand-name">IBRAHIM KHALIL</span></a><a href="#contact" className="brand-online" aria-label="Go to contact section"><i/>ONLINE</a></div>
+        <div className="flex items-center gap-2 font-bold tracking-tight"><IKLogo/><div className="brand-lockup"><a href="#home" className="brand-name" aria-label="Back to home">IBRAHIM KHALIL</a><a href="#contact" className="brand-online" aria-label="Go to contact section"><i/>ONLINE</a></div></div>
         <nav className="hidden gap-5 text-sm text-slate-300 lg:flex">
           {navLinks.map(([n,id]) => <a key={id} href={`#${id}`} className="hover:text-white">{n}</a>)}
         </nav>

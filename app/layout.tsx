@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 const base = "https://ibrahim88ku.github.io";
 export const metadata: Metadata = {
- title: "Ibrahim Khalil | Storage, Backup, Virtualization, Cloud, Kubernetes, DevOps",
+ title: "Ibrahim Khalil | Storage, Backup, Virtualization, Linux, Windows, Cloud, Kubernetes, DevOps",
  description: "Hire Ibrahim Khalil, a Principal Infrastructure Engineer and Technology Architect with 12+ years delivering enterprise storage, SAN, Commvault/Veeam backup, disaster recovery, VMware, Hyper-V, AWS, Azure, GCP, Kubernetes and DevOps solutions internationally.",
  metadataBase: new URL(base),
  alternates: {canonical: "/"},
