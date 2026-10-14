@@ -36,3 +36,6 @@ Review international engagement wording and technology keywords before publishin
 - New illustrated 3D-styled IK globe SVG logo and matching favicon; script-like IK lettering with cursive fallbacks.
 - Search metadata, canonical URL, sitemap.xml, robots.txt, and Person JSON-LD.
 - SEO can improve discoverability but cannot guarantee rankings; add Search Console verification and genuine project case studies over time.
+
+### V9 logo refresh
+Removed globe imagery and replaced it with a text-only `IK.` monogram using the visitor's installed Monotype Corsiva where available, with cursive fallbacks. The monogram features a lightweight native Canvas particle animation, a click-triggered particle burst, hover glow, and reduced-motion support. Updated favicon, apple icon, and Open Graph image to `public/ik-logo.svg`. No new npm packages required.

@@ -1,5 +1,6 @@
 import LiveTelemetry from "./LiveTelemetry";
 import BinaryParticles from "./BinaryParticles";
+import IKLogo from "./IKLogo";
 import {
   ArrowUpRight, Award, Boxes, BriefcaseBusiness, CheckCircle2, Cloud, Database,
   Download, ExternalLink, MessageCircle, GraduationCap, Linkedin, Mail, MapPin, Network,
@@ -131,7 +132,6 @@ function SectionTitle({ kicker, title, body }: { kicker: string; title: string; 
 
 const navLinks = [["Profile","about"],["Technology","technology"],["Projects","projects"],["Credentials","credentials"],["Career","experience"],["Education","education"],["Approach","approach"],["Reviews","reviews"],["Contact","contact"]];
 
-function GlobeIK({size=44}:{size?:number}) {return <span className="globe-logo globe-3d" style={{width:size,height:size}} aria-label="Ibrahim Khalil globe logo"><img src="/ik-globe.svg" alt="IK globe" width={size} height={size}/></span>}
 
 function DataCenterScene(){return <div className="datacenter-scene" aria-hidden="true"><div className="dc-binary">{Array.from({length:13},(_,i)=><span key={i}>{'101101001011010010100111000101001010110101100101101001'.slice(i,i+36)}</span>)}</div><div className="dc-racks">{Array.from({length:9},(_,r)=><div className="dc-rack" key={r}><div className="rack-label">RACK {String(r+1).padStart(2,'0')}</div>{Array.from({length:12},(_,u)=><div className="rack-unit" key={u}><i/><i/><b/></div>)}</div>)}</div><div className="dc-floor"/></div>}
 
@@ -140,7 +140,7 @@ export default function Home() {
   return <main><BinaryParticles/>
     <header className="fixed top-0 z-50 w-full border-b border-slate-800/70 bg-[#07111f]/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-        <a href="#home" className="flex items-center gap-2 font-bold tracking-tight"><GlobeIK/><span className="brand-lockup"><span className="brand-name">IBRAHIM KHALIL</span><span className="brand-online"><i/>ONLINE</span></span></a>
+        <div className="flex items-center gap-2 font-bold tracking-tight"><IKLogo/><a href="#home" className="brand-lockup" aria-label="Back to home"><span className="brand-name">IBRAHIM KHALIL</span><span className="brand-online"><i/>ONLINE</span></a></div>
         <nav className="hidden gap-5 text-sm text-slate-300 lg:flex">
           {navLinks.map(([n,id]) => <a key={id} href={`#${id}`} className="hover:text-white">{n}</a>)}
         </nav>

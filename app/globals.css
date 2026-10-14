@@ -82,3 +82,16 @@ main > header {position:fixed}
 .globe-3d:hover img{transform:rotateY(22deg) rotateZ(-9deg) scale(1.12);filter:drop-shadow(0 0 13px #5ce7ff)}
 @keyframes globe-entrance{0%{opacity:0;transform:rotateY(-85deg) scale(.65);filter:brightness(2)}60%{opacity:1;filter:brightness(1.6)}100%{opacity:1;transform:rotateY(0) scale(1);filter:drop-shadow(0 0 8px rgba(80,218,255,.5))}}
 @media(prefers-reduced-motion:reduce){.globe-3d{animation:none}.globe-3d:hover img{transform:none}}
+
+/* V9 — text-only IK. monogram with lightweight canvas sparkle and click burst */
+.ik-logo{width:76px;height:54px;position:relative;display:inline-grid;place-items:center;isolation:isolate;flex:none;animation:ik-enter 1.15s cubic-bezier(.2,.85,.2,1) both}
+.ik-logo-text{position:relative;z-index:1;pointer-events:none;font-family:"Monotype Corsiva","URW Chancery L","Apple Chancery","Brush Script MT",cursive;font-size:49px;font-weight:700;font-style:italic;letter-spacing:-.095em;line-height:1;color:#f7faff;text-shadow:0 1px 0 #6de9ff,0 0 13px #51d9ffb3,0 4px 13px #000;transition:transform .3s ease,text-shadow .3s ease;white-space:nowrap;padding-right:8px}
+.ik-logo-dot{color:#ffd67c;text-shadow:0 0 12px #ffd67c;letter-spacing:0}
+.ik-logo-particles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.ik-logo-click{position:absolute;inset:0;z-index:3;border:0;background:transparent;cursor:pointer;border-radius:12px}
+.ik-logo-click:focus-visible{outline:2px solid #7ceeff;outline-offset:2px}
+.ik-logo:hover .ik-logo-text{transform:scale(1.11) rotate(-3deg);text-shadow:0 1px 0 #c6f8ff,0 0 19px #5ef2ff,0 4px 18px #000}
+.ik-logo-burst .ik-logo-text{animation:ik-burst .8s cubic-bezier(.16,1,.3,1)}
+@keyframes ik-enter{0%{opacity:0;transform:translateY(-18px) scale(.65);filter:brightness(2.4)}65%{opacity:1;transform:translateY(3px) scale(1.12)}100%{opacity:1;transform:none;filter:brightness(1)}}
+@keyframes ik-burst{0%{transform:scale(1)}30%{transform:scale(1.28) rotate(-7deg);filter:brightness(1.8)}100%{transform:scale(1);filter:brightness(1)}}
+@media(prefers-reduced-motion:reduce){.ik-logo,.ik-logo-burst .ik-logo-text{animation:none}.ik-logo:hover .ik-logo-text{transform:none}}
