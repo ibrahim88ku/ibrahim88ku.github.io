@@ -109,10 +109,10 @@ const certifications = [
   "Commvault Certified Professional",
   "VMware Certified Specialist — vSAN",
   "VMware Certified Professional — Data Center Virtualization (VCP-DCV)",
-  "Dell Specialist — Implementation Engineer, PowerEdge MX Modular",
-  "Dell Specialist — Implementation Engineer, Unity Solutions",
-  "Dell Specialist — Technology Architect, Midrange Storage Solutions",
-  "Dell Associate — Information Storage and Management"
+  "Dell EMC Specialist — Implementation Engineer, PowerEdge MX Modular",
+  "Dell EMC Specialist — Implementation Engineer, Unity Solutions",
+  "Dell EMC Specialist — Technology Architect, Midrange Storage Solutions",
+  "Dell EMC Associate — Information Storage and Management"
 ];
 
 const training = [
@@ -131,7 +131,7 @@ function SectionTitle({ kicker, title, body }: { kicker: string; title: string; 
 
 const navLinks = [["Profile","about"],["Technology","technology"],["Projects","projects"],["Credentials","credentials"],["Career","experience"],["Education","education"],["Approach","approach"],["Reviews","reviews"],["Contact","contact"]];
 
-function GlobeIK({size=44}:{size?:number}) {return <span className="globe-logo" style={{width:size,height:size}} aria-label="IK globe logo"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" strokeWidth="2"/><ellipse cx="32" cy="32" rx="12" ry="27" fill="none" stroke="currentColor" strokeWidth="1.5" opacity=".65"/><path d="M5 32h54M11 18h42M11 46h42" fill="none" stroke="currentColor" strokeWidth="1.5" opacity=".55"/></svg><span>IK</span></span>}
+function GlobeIK({size=44}:{size?:number}) {return <span className="globe-logo globe-3d" style={{width:size,height:size}} aria-label="Ibrahim Khalil globe logo"><img src="/ik-globe.svg" alt="IK globe" width={size} height={size}/></span>}
 
 function DataCenterScene(){return <div className="datacenter-scene" aria-hidden="true"><div className="dc-binary">{Array.from({length:13},(_,i)=><span key={i}>{'101101001011010010100111000101001010110101100101101001'.slice(i,i+36)}</span>)}</div><div className="dc-racks">{Array.from({length:9},(_,r)=><div className="dc-rack" key={r}><div className="rack-label">RACK {String(r+1).padStart(2,'0')}</div>{Array.from({length:12},(_,u)=><div className="rack-unit" key={u}><i/><i/><b/></div>)}</div>)}</div><div className="dc-floor"/></div>}
 
@@ -171,7 +171,7 @@ export default function Home() {
 
     <section id="about" className="section">
       <SectionTitle kicker="01 / Professional profile" title="Enterprise infrastructure engineering from architecture to production operations." body="My career combines solution architecture, implementation, migration, L3 troubleshooting and operational ownership across mission-critical infrastructure. I have delivered projects for FinTech, Banking/BFSI, Telecom, Defense, Government and enterprise customers, working with multiple OEM vendors and international clients."/>
-      <div className="card"><Cpu className="mb-5 text-sky-300"/><h3 className="text-xl font-semibold">Architecture, hands-on delivery & international OEM engagements</h3><p className="mt-3 leading-7 text-slate-300">I work across the full infrastructure lifecycle: requirements, assessment, architecture, implementation, migration, validation, performance optimization, protection, disaster recovery and operational support. My strongest depth is in enterprise storage, SAN and data protection, extended by virtualization, cloud and container platforms.</p><p className="mt-4 leading-7 text-slate-300">I have delivered multi-vendor OEM infrastructure projects and supported clients across the United States, Canada, Australia, Europe (including Germany, the Netherlands and Switzerland), the Middle East (including Saudi Arabia and the UAE), and Asia (including India, Bangladesh, Singapore, Malaysia and Hong Kong). Engagements span on-site implementations, partner/OEM collaboration, remote consulting, production support and cross-region delivery.</p><p className="mt-4 text-sm leading-6 text-slate-400">Industry exposure: financial services, banking, telecommunications, government, defense and enterprise infrastructure.</p></div>
+      <div className="card"><Cpu className="mb-5 text-sky-300"/><h3 className="text-xl font-semibold">Architecture, hands-on delivery & international OEM engagements</h3><p className="mt-3 leading-7 text-slate-300">I work across the full infrastructure lifecycle: requirements, assessment, architecture, implementation, migration, validation, performance optimization, protection, disaster recovery and operational support. My strongest depth is in enterprise storage, SAN and data protection, extended by virtualization, cloud and container platforms.</p><p className="mt-4 leading-7 text-slate-300">I have delivered multi-vendor OEM infrastructure projects and supported clients across the USA, Canada, Australia, UK, Germany, Netherlands, Switzerland, Saudi Arabia, UAE, Qatar, India, Bangladesh, Singapore, Malaysia, Thailand, Hong Kong & China. Engagements span on-site implementations, partner/OEM collaboration, remote consulting, production support and cross-region delivery.</p><p className="mt-4 text-sm leading-6 text-slate-400">Industry exposure: financial services, banking, telecommunications, government, defense and enterprise infrastructure.</p></div>
       <div className="card mt-5"><h3 className="text-xl font-semibold">Core technical competencies</h3><ul className="mt-5 grid gap-4 lg:grid-cols-2">{profileSpecialties.map(item => <li key={item} className="flex gap-3 text-sm leading-7 text-slate-300"><CheckCircle2 size={17} className="mt-1 shrink-0 text-cyan-300"/>{item}</li>)}</ul></div>
     </section>
 

@@ -29,3 +29,10 @@ Review international engagement wording and technology keywords before publishin
 ## V6.1 adjustments
 - Green CONNECTED telemetry label. Telemetry remains simulated, not a real monitoring feed.
 - Review heading changed to “Clients Feedback”; removed requested editorial footer. The review-style copy was generated for presentation and must not be attributed to real clients without their actual feedback.
+
+## V8 changes
+- International client countries updated exactly as requested.
+- Four Dell credential names standardized to Dell EMC.
+- New illustrated 3D-styled IK globe SVG logo and matching favicon; script-like IK lettering with cursive fallbacks.
+- Search metadata, canonical URL, sitemap.xml, robots.txt, and Person JSON-LD.
+- SEO can improve discoverability but cannot guarantee rankings; add Search Console verification and genuine project case studies over time.
