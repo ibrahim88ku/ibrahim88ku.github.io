@@ -1,4 +1,5 @@
 import LiveTelemetry from "./LiveTelemetry";
+import BinaryParticles from "./BinaryParticles";
 import {
   ArrowUpRight, Award, Boxes, BriefcaseBusiness, CheckCircle2, Cloud, Database,
   Download, ExternalLink, MessageCircle, GraduationCap, Linkedin, Mail, MapPin, Network,
@@ -136,7 +137,7 @@ function DataCenterScene(){return <div className="datacenter-scene" aria-hidden=
 
 
 export default function Home() {
-  return <main>
+  return <main><BinaryParticles/>
     <header className="fixed top-0 z-50 w-full border-b border-slate-800/70 bg-[#07111f]/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
         <a href="#home" className="flex items-center gap-2 font-bold tracking-tight"><GlobeIK/><span className="brand-lockup"><span className="brand-name">IBRAHIM KHALIL</span><span className="brand-online"><i/>ONLINE</span></span></a>
@@ -234,7 +235,7 @@ export default function Home() {
     </section>
 
     <section id="contact" className="section border-t border-slate-800/60 pb-12">
-      <div className="card text-center"><div className="kicker">09 / Contact</div><h2 className="mt-3 text-3xl font-bold">Connect for infrastructure & technology engineering.</h2><p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-400">Enterprise storage, SAN, backup &amp; DR, virtualization, cloud, Kubernetes, DevOps and platform infrastructure opportunities.</p><div className="mt-7 flex flex-wrap justify-center gap-3"><a className="btn-primary" href="mailto:ibrahim88ku@gmail.com"><Mail size={17}/> Email</a><a className="btn-secondary" href="https://www.linkedin.com/in/ibrahim88ku/" target="_blank" rel="noreferrer"><Linkedin size={17}/> LinkedIn</a><a className="btn-secondary" href="https://wa.me/ibrahim88ku" target="_blank" rel="noreferrer"><MessageCircle size={17}/> WhatsApp · @ibrahim88ku</a><a className="btn-secondary" href="/Ibrahim-Khalil-CV.pdf"><Download size={17}/> CV</a></div></div>
+      <div className="card text-center"><div className="kicker">09 / Contact</div><h2 className="mt-3 text-3xl font-bold">Connect for infrastructure & technology engineering.</h2><p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-400">Enterprise storage, SAN, backup &amp; DR, virtualization, cloud, Kubernetes, DevOps and platform infrastructure opportunities.</p><div className="mt-7 flex flex-wrap justify-center gap-3"><a className="btn-primary" href="mailto:ibrahim88ku@gmail.com"><Mail size={17}/> Email</a><a className="btn-secondary" href="https://www.linkedin.com/in/ibrahim88ku/" target="_blank" rel="noreferrer"><Linkedin size={17}/> LinkedIn</a><a className="btn-secondary" href="https://wa.me/ibrahim88ku" target="_blank" rel="noreferrer"><MessageCircle size={17}/> WhatsApp</a><a className="btn-secondary" href="/Ibrahim-Khalil-CV.pdf"><Download size={17}/> CV</a></div></div>
       <footer className="pt-10 text-center text-xs text-slate-600">© {new Date().getFullYear()} Ibrahim Khalil · Professional Certified Engineer & Technology Architect</footer>
     </section>
   </main>;
