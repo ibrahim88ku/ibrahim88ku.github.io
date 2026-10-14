@@ -95,3 +95,14 @@ main > header {position:fixed}
 @keyframes ik-enter{0%{opacity:0;transform:translateY(-18px) scale(.65);filter:brightness(2.4)}65%{opacity:1;transform:translateY(3px) scale(1.12)}100%{opacity:1;transform:none;filter:brightness(1)}}
 @keyframes ik-burst{0%{transform:scale(1)}30%{transform:scale(1.28) rotate(-7deg);filter:brightness(1.8)}100%{transform:scale(1);filter:brightness(1)}}
 @media(prefers-reduced-motion:reduce){.ik-logo,.ik-logo-burst .ik-logo-text{animation:none}.ik-logo:hover .ik-logo-text{transform:none}}
+
+/* V10: uploaded globe artwork stays still; only IK glyphs particle-reveal. */
+.ik-world-logo{position:relative;width:56px;height:56px;display:inline-block;flex:none;isolation:isolate}
+.ik-world-back,.ik-world-word,.ik-world-particles,.ik-world-button{position:absolute;inset:0;width:100%;height:100%}
+.ik-world-back{display:block;z-index:0}
+.ik-world-word{z-index:1;pointer-events:none;transition:filter .25s ease;filter:drop-shadow(0 0 3px #7deaff)}
+.ik-world-particles{z-index:2;pointer-events:none}
+.ik-world-button{z-index:3;cursor:pointer;background:transparent;border:0;border-radius:14px}
+.ik-world-button:focus-visible{outline:2px solid #7deaff;outline-offset:3px}
+.ik-world-logo:hover .ik-world-word{filter:drop-shadow(0 0 6px #a3f2ff)}
+@media(prefers-reduced-motion:reduce){.ik-world-word{opacity:1!important}}

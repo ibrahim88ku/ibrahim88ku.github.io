@@ -39,3 +39,7 @@ Review international engagement wording and technology keywords before publishin
 
 ### V9 logo refresh
 Removed globe imagery and replaced it with a text-only `IK.` monogram using the visitor's installed Monotype Corsiva where available, with cursive fallbacks. The monogram features a lightweight native Canvas particle animation, a click-triggered particle burst, hover glow, and reduced-motion support. Updated favicon, apple icon, and Open Graph image to `public/ik-logo.svg`. No new npm packages required.
+
+
+## V10 IK logo
+Restored the user-provided globe favicon artwork as the header logo, favicon and social preview emblem. The globe is stationary; only the IK glyphs animate with a particle assembly on initial load and on click. No After Effects runtime required; the effect is implemented with HTML Canvas.

@@ -1,45 +1,68 @@
 "use client";
+import {useEffect,useRef} from "react";
 
-import {useEffect, useRef} from "react";
-
+type Particle={x:number;y:number;tx:number;ty:number;vx:number;vy:number;life:number;size:number};
 export default function IKLogo(){
-  const canvasRef=useRef<HTMLCanvasElement>(null);
-  const wrapperRef=useRef<HTMLSpanElement>(null);
-  const burstRef=useRef<(()=>void)|null>(null);
-  useEffect(()=>{
-    const canvas=canvasRef.current;
-    const wrapper=wrapperRef.current;
-    if(!canvas||!wrapper)return;
-    const ctx=canvas.getContext("2d");
-    if(!ctx)return;
-    const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let frame=0, raf=0, particles:{x:number;y:number;vx:number;vy:number;life:number;max:number;radius:number;hue:number}[]=[];
-    const resize=()=>{const r=wrapper.getBoundingClientRect();const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0)};
-    resize();
-    const observer=new ResizeObserver(resize);observer.observe(wrapper);
-    const spawn=(count:number)=>{
-      const w=wrapper.clientWidth,h=wrapper.clientHeight;
-      for(let i=0;i<count;i++){
-        const a=Math.random()*Math.PI*2,s=0.7+Math.random()*2.8;
-        particles.push({x:w*(.2+Math.random()*.6),y:h*(.25+Math.random()*.5),vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:0,max:24+Math.random()*35,radius:.7+Math.random()*1.7,hue:Math.random()>.35?190:42});
-      }
-    };
-    const draw=()=>{
-      frame++;const w=wrapper.clientWidth,h=wrapper.clientHeight;
-      ctx.clearRect(0,0,w,h);
-      if(frame%8===0&&particles.length<55)spawn(1);
-      particles=particles.filter(p=>p.life<p.max);
-      for(const p of particles){p.x+=p.vx;p.y+=p.vy;p.vx*=.984;p.vy*=.984;p.life++;
-        const alpha=(1-p.life/p.max)*.9;
-        ctx.beginPath();ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
-        ctx.fillStyle=p.hue===190?`rgba(97,231,255,${alpha})`:`rgba(255,215,123,${alpha})`;
-        ctx.shadowColor=p.hue===190?"#54e6ff":"#ffd780";ctx.shadowBlur=8;ctx.fill();
-      }
-      ctx.shadowBlur=0;raf=requestAnimationFrame(draw);
-    };
-    if(!reduce){spawn(15);raf=requestAnimationFrame(draw)}
-    burstRef.current=()=>{if(reduce)return;spawn(90);wrapper.classList.remove("ik-logo-burst");void wrapper.offsetWidth;wrapper.classList.add("ik-logo-burst");window.setTimeout(()=>wrapper.classList.remove("ik-logo-burst"),850)};
-    return ()=>{cancelAnimationFrame(raf);observer.disconnect();burstRef.current=null};
-  },[]);
-  return <span ref={wrapperRef} className="ik-logo" aria-label="IK dot logo"><span className="ik-logo-text">IK<span className="ik-logo-dot">.</span></span><canvas ref={canvasRef} className="ik-logo-particles" aria-hidden="true"/><button type="button" className="ik-logo-click" aria-label="Animate IK logo" title="Animate IK logo" onClick={()=>burstRef.current?.()}/></span>;
+ const canvasRef=useRef<HTMLCanvasElement>(null);
+ const logoRef=useRef<HTMLSpanElement>(null);
+ const replay=useRef<()=>void>(()=>{});
+ useEffect(()=>{
+  const canvas=canvasRef.current, host=logoRef.current;
+  if(!canvas||!host)return;
+  const ctx=canvas.getContext("2d");if(!ctx)return;
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let raf=0, timer=0, particles:Particle[]=[], start=0, running=false;
+  const word=host.querySelector<HTMLElement>(".ik-world-word");
+  // Draw the actual IK glyphs into an offscreen canvas and sample ONLY the text pixels.
+  const mask=document.createElement("canvas");mask.width=256;mask.height=256;
+  const mc=mask.getContext("2d",{willReadFrequently:true});
+  const makePoints=()=>{
+   if(!mc)return [] as {x:number;y:number}[];
+   mc.clearRect(0,0,256,256);
+   mc.font="800 92px Arial, sans-serif";mc.textAlign="center";mc.textBaseline="alphabetic";
+   mc.fillText("IK",128,156);
+   const pixels=mc.getImageData(0,0,256,256).data;
+   const points:{x:number;y:number}[]=[];
+   for(let y=70;y<172;y+=4)for(let x=65;x<190;x+=4){if(pixels[(y*256+x)*4+3]>125)points.push({x:x/4,y:y/4})}
+   return points;
+  };
+  const points=makePoints();
+  const resize=()=>{const d=Math.min(window.devicePixelRatio||1,2);const w=host.clientWidth,h=host.clientHeight;canvas.width=Math.round(w*d);canvas.height=Math.round(h*d);ctx.setTransform(d,0,0,d,0,0)};
+  resize();const observer=new ResizeObserver(resize);observer.observe(host);
+  const draw=(now:number)=>{
+   if(!running)return;
+   const elapsed=now-start;const w=host.clientWidth,h=host.clientHeight;
+   ctx.clearRect(0,0,w,h);
+   for(const p of particles){
+    const pull=Math.min(1,elapsed/950);const ease=1-Math.pow(1-pull,3);
+    p.x+=(p.tx-p.x)*(.055+ease*.13);p.y+=(p.ty-p.y)*(.055+ease*.13);
+    const fade=elapsed>1250?Math.max(0,1-(elapsed-1250)/400):1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fillStyle=`rgba(123,235,255,${fade*.9})`;ctx.shadowColor="#7deaff";ctx.shadowBlur=6;ctx.fill();
+   }
+   ctx.shadowBlur=0;
+   if(elapsed>900&&word)word.style.opacity=String(Math.min(1,(elapsed-900)/480));
+   if(elapsed<1650)raf=requestAnimationFrame(draw);else{running=false;ctx.clearRect(0,0,w,h);if(word)word.style.opacity="1"}
+  };
+  replay.current=()=>{
+   cancelAnimationFrame(raf);window.clearTimeout(timer);
+   if(reduce){if(word)word.style.opacity="1";return}
+   const w=host.clientWidth,h=host.clientHeight;
+   particles=points.map(p=>{
+    const tx=p.x/64*w,ty=p.y/64*h;
+    const a=Math.random()*Math.PI*2,r=12+Math.random()*32;
+    return {x:tx+Math.cos(a)*r,y:ty+Math.sin(a)*r,tx,ty,vx:0,vy:0,life:0,size:.45+Math.random()*.7};
+   });
+   if(word)word.style.opacity="0";
+   start=performance.now();running=true;raf=requestAnimationFrame(draw);
+  };
+  timer=window.setTimeout(()=>replay.current(),180);
+  return ()=>{cancelAnimationFrame(raf);clearTimeout(timer);observer.disconnect()};
+ },[]);
+ return <span className="ik-world-logo" ref={logoRef}>
+   <img className="ik-world-back" src="/ik-globe-background.svg" alt="" aria-hidden="true"/>
+   <svg className="ik-world-word" viewBox="0 0 64 64" aria-hidden="true"><text x="32" y="39" fontFamily="Arial,sans-serif" fontSize="23" fontWeight="800" textAnchor="middle" fill="#e7fbff">IK</text></svg>
+   <canvas className="ik-world-particles" ref={canvasRef} aria-hidden="true"/>
+   <button className="ik-world-button" type="button" aria-label="Replay IK text particle animation" title="Animate IK text" onClick={()=>replay.current()}/>
+ </span>;
 }

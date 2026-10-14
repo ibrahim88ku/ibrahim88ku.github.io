@@ -13,7 +13,7 @@ export const metadata: Metadata = {
  creator:"Ibrahim Khalil",
  keywords: ["Ibrahim Khalil", "hire infrastructure engineer", "enterprise storage consultant", "storage architect", "SAN engineer", "Dell EMC consultant", "Hitachi VSP", "NetApp ONTAP", "Cisco MDS", "Brocade SAN", "Commvault consultant", "Veeam backup engineer", "backup and disaster recovery consultant", "VMware vSphere", "Hyper-V engineer", "Proxmox", "AWS cloud architect", "Azure engineer", "GCP", "Oracle Cloud OCI", "Kubernetes administrator", "DevOps engineer", "Linux administrator", "storage migration", "data center infrastructure", "remote infrastructure support"],
  icons: {icon:"/favicon.svg",shortcut:"/favicon.svg",apple:"/ik-logo.svg"},
- openGraph: {type:"profile",url:base,siteName:"Ibrahim Khalil — Technology Architect",title:"Ibrahim Khalil | Enterprise Infrastructure, Storage, Backup & Cloud",description:"Enterprise storage, SAN, backup & DR, virtualization, cloud, Kubernetes and DevOps consulting, architecture and implementation.",images:[{url:"/ik-logo.svg",width:128,height:128,alt:"Ibrahim Khalil IK monogram logo"}]},
+ openGraph: {type:"profile",url:base,siteName:"Ibrahim Khalil — Technology Architect",title:"Ibrahim Khalil | Enterprise Infrastructure, Storage, Backup & Cloud",description:"Enterprise storage, SAN, backup & DR, virtualization, cloud, Kubernetes and DevOps consulting, architecture and implementation.",images:[{url:"/og-ik.svg",width:1200,height:630,alt:"Ibrahim Khalil — Enterprise Infrastructure Architect"}]},
  twitter: {card:"summary",title:"Ibrahim Khalil | Technology Architect",description:"Storage, SAN, Backup & DR, Virtualization, Cloud, Kubernetes & DevOps"}
 };
 export default function RootLayout({children}:{children:React.ReactNode}) {
